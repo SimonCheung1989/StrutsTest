@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<ROOT>
+  <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.impl.PdfEditionDaoImpl.queryPdfEdition</NAME>
+      <DATABASE_NAME>bsyyptdb</DATABASE_NAME>
+      <TYPE>select</TYPE>
+      <BATCH>false</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>查询申报税种的pdf版本号</DESCRIPTION>
+      <SQL>
+         <NAME>query_cs_pdfed_sql</NAME>
+         <TYPE>query</TYPE>
+         <CLAUSE usePreparedStatement="true">
+         	select t.yzpzzldm,
+         		t.pdfed 
+         	from cs_pdfed t 
+         	where t.yzpzzldm = ?
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+  
+    <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.impl.PdfEditionDaoImpl.insertPdfEdition</NAME>
+      <DATABASE_NAME>bsyyptdb</DATABASE_NAME>
+      <TYPE>update</TYPE>
+      <BATCH>false</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>插入一条pdf版本记录</DESCRIPTION>
+      <SQL>
+         <NAME>insert_cs_pdfed_sql</NAME>
+         <TYPE>update</TYPE>
+         <CLAUSE usePreparedStatement="true">
+         	insert into cs_pdfed
+         	(yzpzzldm,pdfed) 
+         	values
+         	(?,?)
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+  
+    <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.impl.PdfEditionDaoImpl.updatePdfEdition</NAME>
+      <DATABASE_NAME>bsyyptdb</DATABASE_NAME>
+      <TYPE>update</TYPE>
+      <BATCH>false</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>修改pdf版本号</DESCRIPTION>
+      <SQL>
+         <NAME>update_cs_pdfed_sql</NAME>
+         <TYPE>update</TYPE>
+         <CLAUSE usePreparedStatement="true">
+			update cs_pdfed t 
+			set t.pdfed=? 
+			where t.yzpzzldm=?
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+</ROOT>

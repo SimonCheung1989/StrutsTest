@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+  <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.ctais11.impl.SbCtais11QueryDaoImpl.checkSbzf</NAME>
+      <DATABASE_NAME>ctais</DATABASE_NAME>
+      <TYPE>select</TYPE>
+      <BATCH>false</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>申报状态查询</DESCRIPTION>
+      <SQL>
+         <NAME>querySbzfSbbzt</NAME>
+         <TYPE>query</TYPE>
+         <CLAUSE usePreparedStatement="true">
+    		select pzxh 
+		  	from sb_sbxx 
+         	where zsxm_dm = '04'  
+         	and sssq_q = to_date(?, 'yyyy-mm-dd')				   
+         	and sssq_z = to_date(?, 'yyyy-mm-dd')
+         	and nsrsbh = ?
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+  
+  <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.ctais11.impl.SbCtais11QueryDaoImpl.checkQyGlYwWlSbqk</NAME>
+      <DATABASE_NAME>ctais</DATABASE_NAME>
+      <TYPE>select</TYPE>
+      <BATCH>false</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>申报状态查询</DESCRIPTION>
+      <SQL>
+         <NAME>checkQyGlYwWlSbqk</NAME>
+         <TYPE>query</TYPE>
+         <CLAUSE usePreparedStatement="true">
+    		select sbrq from SB_NDSDS_GLQY where  
+				SSSQ_Q=to_date(?,'yyyy-mm-dd') and  
+				SSSQ_Z=to_date(?,'yyyy-mm-dd') and  
+				YXBZ = 'Y' and NSRSBH=?
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+</ROOT>

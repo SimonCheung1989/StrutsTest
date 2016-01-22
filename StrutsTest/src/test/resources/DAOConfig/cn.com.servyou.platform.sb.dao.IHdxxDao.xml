@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+	<TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.HdxxDaoImpl.insertOrUpdateHdxx</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报种类更新期初核定信息</DESCRIPTION>
+		<SQL>
+			<NAME>insertOrUpdateHdxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				<UPDATE_CLAUSE>
+					MERGE INTO HD_HDXX HD
+					USING (SELECT ? DJXH,
+					              ? SBZL_DM,
+					              ? SBNY,
+					              ? HDXX,
+					              SYSDATE CZSJ
+					         FROM DUAL) O
+					ON (HD.DJXH = O.DJXH AND HD.SBZL_DM = O.SBZL_DM AND HD.SBNY = O.SBNY)
+					WHEN MATCHED THEN
+					  UPDATE
+					     SET HDXX     = O.HDXX,
+					     	 CZSJ      = O.CZSJ
+					WHEN NOT MATCHED THEN
+					  INSERT
+					    (DJXH,SBZL_DM, SBNY, HDXX, CZSJ)
+					  VALUES
+					    (O.DJXH, O.SBZL_DM, O.SBNY, O.HDXX, O.CZSJ)
+				</UPDATE_CLAUSE>
+				<SELECT_CLAUSE>
+					SELECT T.HDXX FROM HD_HDXX T WHERE T.DJXH=? AND T.SBZL_DM=? AND T.SBNY=? FOR UPDATE
+				</SELECT_CLAUSE>
+
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST>[String,String,String,CLOB,String,String,String]</PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+    </TASK> 
+    
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.HdxxDaoImpl.queryHdxxList</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>根据登记序号查询本地所有期初核定</DESCRIPTION>
+		<SQL>
+			<NAME>queryHdxxList</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				SELECT T.DJXH,
+				T.SBZL_DM,
+				T.SBNY,
+				T.HDXX,
+				to_char(T.CZSJ, 'yyyy-mm-dd hh24:mi:ss')CZSJ
+				FROM HD_HDXX T
+				WHERE T.DJXH=?
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	
+	<TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.HdxxDaoImpl.saveBatchHdxx</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>true</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>保存批量期初核定信息</DESCRIPTION>
+		<SQL>
+			<NAME>saveBatchHdxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE repeat="true" usePreparedStatement="true">
+				<UPDATE_CLAUSE>
+					MERGE INTO HD_HDXX HD
+					USING (SELECT ? DJXH,
+					              ? SBZL_DM,
+					              ? SBNY,
+					              ? HDXX,
+					              SYSDATE CZSJ
+					         FROM DUAL) O
+					ON (HD.DJXH = O.DJXH AND HD.SBZL_DM = O.SBZL_DM AND HD.SBNY = O.SBNY)
+					WHEN MATCHED THEN
+					  UPDATE
+					     SET HDXX     = O.HDXX,
+					     	 CZSJ      = O.CZSJ
+					WHEN NOT MATCHED THEN
+					  INSERT
+					    (DJXH,SBZL_DM, SBNY, HDXX, CZSJ)
+					  VALUES
+					    (O.DJXH, O.SBZL_DM, O.SBNY, O.HDXX, O.CZSJ)
+				</UPDATE_CLAUSE>
+				<SELECT_CLAUSE>
+					SELECT T.HDXX FROM HD_HDXX T WHERE T.DJXH=? AND T.SBZL_DM=? AND T.SBNY=? FOR UPDATE
+				</SELECT_CLAUSE>
+
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST>[String,String,String,CLOB,String,String,String]</PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+    </TASK> 
+    
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.HdxxDaoImpl.queryHdxx</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>根据登记序号、申报种类代码、申报年月查询单条期初核定信息</DESCRIPTION>
+		<SQL>
+			<NAME>queryHdxx</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				SELECT T.DJXH,
+				T.SBZL_DM,
+				T.SBNY,
+				T.HDXX,
+				to_char(T.CZSJ, 'yyyy-mm-dd hh24:mi:ss')CZSJ
+				FROM HD_HDXX T
+				WHERE T.DJXH=? AND T.SBZL_DM=? AND T.SBNY=?
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.HdxxDaoImpl.queryHdxxByDjxhAndSbny</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>根据登记序号、申报年月查询期初核定信息</DESCRIPTION>
+		<SQL>
+			<NAME>queryHdxxByDjxhAndSbny</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				SELECT T.DJXH,
+				T.SBZL_DM,
+				T.SBNY,
+				T.HDXX,
+				to_char(T.CZSJ, 'yyyy-mm-dd hh24:mi:ss') CZSJ
+				FROM HD_HDXX T
+				WHERE T.DJXH=? AND T.SBNY=?
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	
+	<TASK>
+		<NAME>cn.com.servyou.platform.ty.dao.impl.ResponseMessageDaoImpl.queryYwfkxxByDjxh</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>查询业务反馈信息</DESCRIPTION>
+		<SQL>
+			<NAME>queryJcfkxxByDjxh</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE>
+		        select t.qqlsh,
+						 t.mxid,
+						 t.djxh,
+						 t.jybh,
+						 t.qqwjm,
+						 t.sssq,
+						 t.nrkzlist,
+						 t.yhqbz,
+						 t.zyxx,
+						 t.scrq,
+						 t.xgrq
+				from fk_ywxx t
+			 where t.jybh = ?
+				 and t.djxh = ?
+				 and t.sssq = ?
+				 and t.qqwjm = ?
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.HdxxDaoImpl.saveHdxx</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>insert</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>true</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>保存核定信息</DESCRIPTION>
+		<SQL>
+			<NAME>saveFkywxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				<UPDATE_CLAUSE>
+					INSERT INTO HD_HDXX
+							(DJXH, SBZL_DM, SBNY, HDXX, CZSJ)
+						VALUES
+							(?, ?, ?, ?, SYSDATE)
+				</UPDATE_CLAUSE>
+				<SELECT_CLAUSE>
+					SELECT T.HDXX
+						FROM HD_HDXX T
+					 WHERE T.DJXH = ?
+						 AND T.SBZL_DM = ?
+						 AND T.SBNY = ?
+						 FOR UPDATE
+				</SELECT_CLAUSE>
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST>[String,String,String,CLOB,String,String,String]</PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.HdxxDaoImpl.updateHdxx</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>insert</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>true</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>更新核定信息</DESCRIPTION>
+		<SQL>
+			<NAME>updateFkywxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				<UPDATE_CLAUSE>
+					UPDATE HD_HDXX T
+						 SET T.HDXX = ?, T.CZSJ = SYSDATE
+					 WHERE T.DJXH = ?
+						 AND T.SBZL_DM = ?
+						 AND T.SBNY = ?
+				</UPDATE_CLAUSE>
+				<SELECT_CLAUSE>
+					SELECT T.HDXX
+						FROM HD_HDXX T
+					 WHERE T.DJXH = ?
+						 AND T.SBZL_DM = ?
+						 AND T.SBNY = ?
+						 FOR UPDATE
+				</SELECT_CLAUSE>
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST>[CLOB,String,String,String,String,String,String]</PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+</ROOT>

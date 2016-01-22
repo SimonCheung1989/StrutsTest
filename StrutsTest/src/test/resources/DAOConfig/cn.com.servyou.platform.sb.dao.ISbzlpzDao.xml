@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+  <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.impl.SbzlpzDaoImpl.queryBbxx</NAME>
+      <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+      <TYPE>select</TYPE>
+      <BATCH>false</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>查询申报种类报表</DESCRIPTION>
+      <SQL>
+         <NAME>queryBbxx</NAME>
+         <TYPE>query</TYPE>
+         <CLAUSE usePreparedStatement="true">
+         	select 
+         		t.bbid_dm,
+         		t.bbmc 
+         	from SB_SBZLPZB t
+         	where t.sbzl_dm = ?
+         	and t.swjg_dm = ?
+         	and t.yxbz = 'Y'
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+  <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.impl.SbzlpzDaoImpl.updateYxbz</NAME>
+      <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+      <TYPE>update</TYPE>
+      <BATCH>false</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>作废/重新启用申报种类配置</DESCRIPTION>
+      <SQL>
+         <NAME>updateYxbz</NAME>
+         <TYPE>update</TYPE>
+         <CLAUSE usePreparedStatement="true">
+			update SB_SBZLPZB t
+			set t.yxbz = ?
+			where t.sbzl_dm = ?
+			and t.swjg_dm = ?
+			and t.bbid_dm = ?
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+  <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.impl.SbzlpzDaoImpl.saveSbzlpz</NAME>
+      <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+      <TYPE>insert</TYPE>
+      <BATCH>true</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>新增申报种类配置</DESCRIPTION>
+      <SQL>
+         <NAME>saveSbzlpz</NAME>
+         <TYPE>update</TYPE>
+         <CLAUSE repeat="true" usePreparedStatement="true">
+             insert into SB_SBZLPZB(sbzl_dm,
+             	swjg_dm,
+             	bbid_dm,
+             	bbmc,
+             	yxbz)
+             values(?,?,?,?,'Y')
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+</ROOT>

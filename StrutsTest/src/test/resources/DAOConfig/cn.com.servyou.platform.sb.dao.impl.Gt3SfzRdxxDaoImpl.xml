@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.Gt3SfzRdxxDaoImpl.getSfzRdXx</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的税费种认定信息表</DESCRIPTION>
+        <SQL>
+            <NAME>query_jssq_sfzrdxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				SELECT RDPZUUID,
+				       DJXH,
+				       ZFSBZ,
+				       RDZSUUID,
+				       ZSXM_DM,
+				       ZSPM_DM,
+				       ZSZM_DM,
+				       to_char(RDYXQQ,'yyyy-mm-dd') as  RDYXQQ,
+				       to_char(RDYXQZ,'yyyy-mm-dd') as  RDYXQZ,
+				       HY_DM,
+				       SBQX_DM,
+				       NSQX_DM,
+				       SLHDWSE,
+				       YSKM_DM,
+				       ZSL,
+				       YSFPBL_DM,
+				       SKGK_DM,
+				       JKQX_DM,
+				       ZSDLFS_DM,
+				       ZGSWSKFJ_DM,
+				       LRR_DM,
+				       to_char(LRRQ,'yyyy-mm-dd HH24:Mi:SS') as LRRQ ,
+				       XGR_DM,
+				       to_char(XGRQ,'yyyy-mm-dd HH24:Mi:SS') as  XGRQ,
+				       SJGSDQ,
+				       YXBZ,
+				       to_char(SJTB_SJ,'yyyy-mm-dd HH24:Mi:SS') as  SJTB_SJ
+				  FROM HX_ZGXT.RD_SFZRDXXB
+                where
+                    djxh=?
+                    and RDYXQQ&lt;=to_date(?,'yyyy-MM-DD')
+                    and RDYXQZ>=to_date(?,'yyyy-MM-DD')
+                    and yxbz='Y'
+
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.Gt3SfzRdxxDaoImpl.getSfzRdXxPl</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>调用存储过程批量获取税费种认定信息</DESCRIPTION>
+        <SQL>
+            <NAME>call_proc_sfzrdxx</NAME>
+            <TYPE>procedure</TYPE>
+            <CLAUSE>
+                {call proc_rd_sfzrdxxb_pltq(?,?,?,?)}
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST>[IN.VARCHAR,IN.VARCHAR,IN.VARCHAR,OUT.VARCHAR]</PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.Gt3SfzRdxxDaoImpl.getSfzRdXxByZsxmDm</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的税费种认定信息表</DESCRIPTION>
+        <SQL>
+            <NAME>query_jssq_sfzrdxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				SELECT RDPZUUID,
+				       DJXH,
+				       ZFSBZ,
+				       RDZSUUID,
+				       ZSXM_DM,
+				       ZSPM_DM,
+				       ZSZM_DM,
+				       to_char(RDYXQQ,'yyyy-mm-dd') as  RDYXQQ,
+				       to_char(RDYXQZ,'yyyy-mm-dd') as  RDYXQZ,
+				       HY_DM,
+				       SBQX_DM,
+				       NSQX_DM,
+				       SLHDWSE,
+				       YSKM_DM,
+				       ZSL,
+				       YSFPBL_DM,
+				       SKGK_DM,
+				       JKQX_DM,
+				       ZSDLFS_DM,
+				       ZGSWSKFJ_DM,
+				       LRR_DM,
+				       to_char(LRRQ,'yyyy-mm-dd HH24:Mi:SS') as LRRQ ,
+				       XGR_DM,
+				       to_char(XGRQ,'yyyy-mm-dd HH24:Mi:SS') as  XGRQ,
+				       SJGSDQ,
+				       YXBZ,
+				       to_char(SJTB_SJ,'yyyy-mm-dd HH24:Mi:SS') as  SJTB_SJ
+				  FROM HX_ZGXT.RD_SFZRDXXB
+                where
+                    djxh=?
+                    and RDYXQQ&lt;=to_date(?,'yyyy-MM-DD')
+                    and RDYXQZ>=to_date(?,'yyyy-MM-DD')
+                    and ZSXM_DM=?
+                    and YXBZ='Y'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+</ROOT>

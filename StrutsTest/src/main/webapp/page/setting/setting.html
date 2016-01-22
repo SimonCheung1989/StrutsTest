@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>setting.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <script type="text/javascript" src="../../jquery/jquery.js"></script>
+    <script type="text/javascript">
+		function startCrawl(){
+			var deepth = $("#deepth").val();
+			var seeds = $("#seeds").val();
+			$.ajax({
+				url:"../../crawl/crawlAction_startCrawl.do",
+				type:"post",
+				dataType:"json",
+				data:{
+					deepth : deepth,
+					seeds : seeds
+				},
+				success:function(res){
+					alert("抓取任务已开始执行...");
+				},
+				error:function(a, b, c){
+					alert(JSON.stringify(a));
+				}
+			});
+		}
+		
+		function suspendCrawl(){
+			var deepth = $("#deepth").val();
+			var seeds = $("#seeds").val();
+			$.ajax({
+				url:"../../crawl/crawlAction_suspendCrawl.do",
+				type:"post",
+				dataType:"json",
+				data:{
+					deepth : deepth,
+					seeds : seeds
+				},
+				success:function(res){
+					alert("已经暂停爬行...");
+				},
+				error:function(a, b, c){
+					alert(JSON.stringify(a));
+				}
+			});
+		}
+		
+		function resumeCrawl(){
+			var deepth = $("#deepth").val();
+			var seeds = $("#seeds").val();
+			$.ajax({
+				url:"../../crawl/crawlAction_resumeCrawl.do",
+				type:"post",
+				dataType:"json",
+				data:{
+					deepth : deepth,
+					seeds : seeds
+				},
+				success:function(res){
+					alert("已经继续爬行...");
+				},
+				error:function(a, b, c){
+					alert(JSON.stringify(a));
+				}
+			});
+		}
+		
+		function stopCrawl(){
+			var deepth = $("#deepth").val();
+			var seeds = $("#seeds").val();
+			$.ajax({
+				url:"../../crawl/crawlAction_stopCrawl.do",
+				type:"post",
+				dataType:"json",
+				data:{
+					deepth : deepth,
+					seeds : seeds
+				},
+				success:function(res){
+					alert("爬行任务已停止...");
+				},
+				error:function(a, b, c){
+					alert(JSON.stringify(a));
+				}
+			});
+		}
+    </script>
+  </head>
+  
+  <body>
+  <div style="width:80%;height:100%;">
+  	<table style="width:100%;">
+  		<tr>
+  			<th style="width:30%">抓取深度(种子为0)</th>
+  			<td><input type="text" id="deepth" name="deepth" style="width:100%;"></td>
+  		</tr>
+  		<tr>
+  			<th>爬虫种子URL</th>
+  			<td><textarea id="seeds" name="seeds" rows="5" style="width:100%;"></textarea></td>
+  		</tr>
+  		<tr>
+  			<td colspan="2" style="text-align: center">
+  				<input type="button" value="开始抓取" onclick="startCrawl()">
+  				<input type="button" value="暂停抓取" onclick="suspendCrawl()">
+  				<input type="button" value="继续抓取" onclick="resumeCrawl()">
+  				<input type="button" value="停止抓取" onclick="stopCrawl()">
+  			</td>
+  		</tr>
+  	</table>
+  </div>
+  </body>
+</html>

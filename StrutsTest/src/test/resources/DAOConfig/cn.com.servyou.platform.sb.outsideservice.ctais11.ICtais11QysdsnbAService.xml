@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+<TASK>
+	<NAME>qysdsnbAInsert</NAME>
+	<DATABASE_NAME>ctais</DATABASE_NAME>
+	<TYPE>update</TYPE>
+	<BATCH>true</BATCH>
+	<TRANSACTION>true</TRANSACTION>
+	<EXECUTOR></EXECUTOR>
+	<DESCRIPTION></DESCRIPTION>
+	<SQL>
+		<NAME>insert002</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_tbbd(pzxh,
+			ndsds_2014_bdxl_dm, nsrsbh,
+			sssq_q, sssq_z, sbrq, tbrq, hzsbms_dm,
+			bcsblx, tbbz, jybz, yxbz,
+			nsr_swjg_dm, swjg_dm, lrr_dm, lrrq, xgr_dm,
+			xgrq, csbz_s, csbz_x)
+			values (?, ?, ?, to_date(?,'yyyy-mm-dd
+			hh24:mi:ss'),
+			to_date(?,'yyyy-mm-dd hh24:mi:ss'), sysdate,
+			to_date(?,'yyyy-mm-dd
+			hh24:mi:ss'), ?, ?, ?, ?, ?, ?, ?, ?, sysdate,
+			?, sysdate, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, String, String,
+			String, String, String, String, String, String, String, String,
+			String, String]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insertQyjcxxGdVO</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_jcxx_gd (pzxh,
+			xh, gdmc, jjxz,
+			tzbl,
+			zcdz,zjhm, zjlx_dm)
+			values (?, ?, ?, ?, ?, ?, ?,
+			?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, Double, String,
+			String, String]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insertSbbQysds2014NdAJcxx</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into WBJK_SB_NDSDS_2014_JCXX(pzxh, sblx_dm,
+			hz_nsqylx_dm, zczb,
+			hymx_dm, cyrs, zcze, jwzzkg_jmqy_bz,
+			csgjfxz_jzhy_bz, zcjwgljy_bz,
+			ssgslx, sykjzdze_dm, kjdacfd, kjhsrj_mc,
+			jzbwblx, kjzcgjbh_bz,
+			gdzczjff_dm, chcbjjff_dm, hzsshsff_dm,
+			sdsjsff_dm, sshy)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, String, String,
+			Double, String, String, String, String, String, String, String,
+			String, String, String, String, String, String, String]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insertQyjcxxDwtzVO</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_jcxx_dwtz(pzxh,
+			xh, btzzmc, nsrsbh, jjxz,
+			tzbl, tzje, zcdz)
+			values (?, ?, ?, ?, ?, ?,
+			?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, String, Double,
+			Double, String]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert004</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into wbjk_sb_ndsds_2014(pzxh, nsrsbh, hzsbms_dm, bcsblx, qylx_dm, hz_nsqylb_dm, kdqsszyqy_bz, sssq_q, sssq_z, sbrq, tbrq, sjsy_yjse, yysr, yycb, yysjfj, xsfy, glfy, cwfy, zcjzss, gyjzbdsy, tzsy, yylr, yywsr, yywzc, lrze, jwsd, nstzzje, nstzjse, ms_jjsr_jjkc, jwyssd_djjnks, nstzhsd, sdjm, dkynssde, mbyqndks, ynssde, sl, ynsdse, jmsdse, dmsdse, ynse, jwsdynsdse, jwsddmsdse, sjynsdse, bnlj_sjyyjsdse, bqybsdse, zjgftsdse, czjzfpsdse, zjgztscjjbmftsdse, yqnddjdjse, yqndyjwjbqrkse, tdywyjye, yzpzmxxh_zjg, yzpzmxxh_fzjg, slr_dm, yxbz, nsr_swjg_dm, swjg_dm, lrr_dm, lrrq, xgr_dm, xgrq, csbz_s, csbz_x) 
+					values (?, ?, ?, ?, ?, ?, ?, to_date(?,'yyyy-mm-dd hh24:mi:ss'), to_date(?,'yyyy-mm-dd hh24:mi:ss'), sysdate, to_date(?,'yyyy-mm-dd hh24:mi:ss'), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?, sysdate, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String,String,String,String,String,String,String,String,String,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double,Double, String, String, String,String,String,String,String,String,String,String]</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert005</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into wbjk_sb_ndsds_2014_fb1 (pzxh, fbxh, yysr, zyywsr,
+			xshw, xshw_fhbzcjhsr, tgnw, jzth, rdzcsyqsr, zyywsr_qt, qtywsr,
+			clxssr, clxs_fhbzcjhsr, czgdzcsr, czwxzcsr, czbzwspsr, qtywsr_qt,
+			yywsr, fldzcczsr, fhbzcjhsr, zwczsr, zfbzsr, pysr, jzsr, fmsr,
+			wfcfyfksr, hdsr, yywsr_qt)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert006</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into wbjk_sb_ndsds_2014_fb2(pzxh, fbxh, yysr, yhywsr,
+			yhlxsr, cfty,
+			cfzyyh, cczj, ffdkjdk, mrfsjrzc, lxsr_qt, yhsxfyjsr,
+			jsyqssxf,
+			dlywsxf, xycnsxf, yhksxf, gwzxf, tgywyj, yhsxfyjsr_qt,
+			zqywsr,
+			sxfjyjsr, zqcxywsr, zqjjywsr, stkhzcglsr, dldfzqsr, dlbgzqsr,
+			sxf_qt,
+			zqy_qtywsr, yzbf, bxywsr, fbfsr, fcbf, tqwdqzbj, jrywsr_qt,
+			hdsy,
+			jrywsr_qtywsr, yywsr, fldzcczsr, fhbzcjhsr, zwczsr, zfbzsr,
+			pysr,
+			jzsr, yywsr_qt)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert007</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into wbjk_sb_ndsds_2014_fb3(pzxh, fbxh, yycb, zyywcb,
+			xshwcb, xshw_fhbzcjhcb, lwcb, jzhtcb, rdzcsyqcb, zyywcb_qt, qtywcb,
+			clxscb, clxs_fhbzcjhcb, czgdzccb, czwxzccb, bzwczcb, qtywcb_qt,
+			yywzc, fldzcczss, fhbzcjhss, zwczss, fcss, jzzc, zzzc, fmzc, hzss,
+			zqgqtzss, yywzc_qt)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert008</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into wbjk_sb_ndsds_2014_fb4(pzxh, fbxh, yycb, yycb_yh,
+			yycb_yh_lx,
+			yycb_yh_lx_th, yycb_yh_lx_zy, yycb_yh_lx_cr,
+			yycb_yh_lx_xs,
+			yycb_yh_lx_mc, yycb_yh_lx_fx, yycb_yh_lx_qt,
+			yycb_yh_sxf,
+			yycb_yh_sxf_sxf, yycb_yh_sxf_yj, yycb_yh_sxf_qt, yycb_bx,
+			yycb_bx_yw_tb, yycb_bx_yw_pf, yycb_bx_yw_th, yycb_bx_yw_tq,
+			yycb_bx_yw_bx, yycb_bx_yw_bdhl, yycb_bx_yw_fb, yycb_bx_yw_ywth,
+			yycb_bx_yw_sxf, yycb_zq, yycb_zq_sxf, yycb_zq_sxf_zqjj,
+			yycb_zq_sxf_yj, yycb_zq_sxf_qt, yycb_zq_qt, yycb_qtjryw,
+			yycb_qtjryw_qt, yywzc, fldzcczss, fhbzcjhss, zwczss, jzzc, fcss,
+			yywzc_qt)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert009</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into wbjk_sb_ndsds_2014_fb5(pzxh, fbxh, srze, czbzsr,
+			sysr, sjbzsr,
+			fsdwjk, jysr, qtsr, tzsy, qtsr_qt, fylzzsr, jsjzsr,
+			hfsr, tglwsr,
+			spxssr, zfbzsr, tzsr, fylzzsr_qt, zcze, syzc, sjsjzc,
+			dfsdwbz, jyzc,
+			qtzc, fylzzzc, ywhdcb, glfy, czfy, qtfy)
+			values (?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?,
+			?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert010</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb6(pzxh, fbxh,
+			fblc, xsfy, xsfy_jwzf, glfy,
+			glfy_jwzf, cwfy, cwfy_jwzf)
+			values (?, ?,
+			?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert011</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb7(pzxh, fbxh,
+			sbbl, srl, srl_stxssr,
+			srl_waqzfszyz, srl_tzsy, srl_ayqfhs,
+			srl_jyxjrzc, srl_gyjzbdjsy,
+			srl_bzssr, srl_zxytczxzj, srl_xszkzrth,
+			srl_qt, kcl, kcl_txscb,
+			kcl_zgxc, kcl_ywzdfzc, kcl_ggfxcf, kcl_jzzc,
+			kcl_lxzc, kcl_fjfkmscw,
+			kcl_ssznj, kcl_zzzc, kcl_wysxrzsyxg,
+			kcl_yjsxfzc, kcl_bzssryyzcfy,
+			kcl_zxytczxzj, kcl_kqkcxm,
+			kcl_yqdsrwgzc, kcl_jwsdft, kcl_qt, zcl,
+			zcl_zczjtx, zcl_zcjzzbj,
+			zcl_zcss, zcl_qt, tssx, tssx_qycz,
+			tssx_zcxbq, tssx_tshyzbj,
+			tssx_fdckfqy, tssx_qt, tbnstzyssd, qt, hj)
+			values (?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert012</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb8(pzxh, fbxh,
+			sbbl, stxssr,
+			stxssr_fhbxzcjh, stxssr_yysctg, stxssr_yyjjyc,
+			stxssr_yyzgjl,
+			stxssr_yygxfp, stxssr_yydwjz, stxssr_yydwtz,
+			stxssr_tglw, stxssr_qt,
+			stxscb, stxscb_fhbxzcjh, stxscb_yysctg,
+			stxscb_yyjjyc, stxscb_yyzgjl,
+			stxscb_yygxfp, stxscb_yydwjz,
+			stxscb_yydwtz, stxscb_tglw, stxscb_qt,
+			fdcnstz, fdcnstz_xswwg,
+			fdcnstz_wwgsr, fdcnstz_wwgyjmle,
+			fdcnstz_sjfsse, fdcnstz_xswwgzwg,
+			fdcnstz_wwgzwgsr,
+			fdcnstz_zhwwgyjmle, fdcnstz_zhwwgzwgse)
+			values (?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert013</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb9(pzxh, fbxh,
+			sbbl, kqsr, kqsr_zj,
+			kqsr_lx, kqsr_txqsyf, fqsr, fqsr_fqsksr,
+			fqsr_cxsjsr, fqsr_qt,
+			zfbzsr, zfbzsr_syxg, zfbzsr_zcxg, zfbzsr_qt, qt,
+			hj)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert014</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb10(pzxh, fbxh,
+			fblc, cysy_zzje, cysy_ssje, cysy_nstzje, czsy_kjqrczsr,
+			czsy_ssjsczsr, czsy_cztzzmjz, czsy_cztzjsjc, czsy_kjczsdhss,
+			czsy_ssjsczsd, czsy_nstzje, nstzje) values (?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert015</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb11(pzxh, fbxh,
+			fblc, qdnd, czxzj,
+			fhbzssrczxzj_je, fhbzssrczxzj_bnsyje,
+			qyndzcqk_q5nd, qyndzcqk_q4nd,
+			qyndzcqk_q3nd, qyndzcqk_q2nd,
+			qyndzcqk_q1nd, bnzcqk_zcje,
+			bnzcqk_fyhzcje, bnjyqk_jyje,
+			bnjyqk_sjczje, bnjyqk_bnyssrje)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert016</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb12(pzxh, fbxh,
+			fblc, zjje, ssgdkcl,
+			yqndljjzkce, ssje, nstzje, ljjzyhndkce)
+			values (?,
+			?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert017</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into wbjk_sb_ndsds_2014_fb13(pzxh, fbxh, bndggf_xcf,
+			bndggf_xcf_byxkc, bndggf_xcf_fhtjzcxcfzc, bndggf_js_xssr, ssgd_kcl,
+			bndggf_kcxe, bndjz_kce, yqnd_ljkce, bnkcyqne_jze,
+			azftxyzqtglf_ggf_xcf, azftxyzbqy_ggf_xcf, bndggf_xcf_zcnstzje,
+			ljjzyhndkce)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert018</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb14(pzxh, fbxh,
+			sjlx, szdwmc, gyxjz_zzje,
+			gyxjz_assgdjskcxe, gyxjz_ssje, gyxjz_nstzje,
+			fgyxjz_zzje, nstzje)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, Double, Double,
+			Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert019</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb15(pzxh, fbxh,
+			fblc, zzje_zczzje,
+			zzje_bnjjtxe, zzje_ljzjtxe, ssje_zcjsjc,
+			ssje_bnzjtxe,
+			ssje_bnjszjtxe, ssje_qze, ssje_ljzjtxe, nstz_je,
+			nstz_tzyy_dm)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, String]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert020</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb16(pzxh, fbxh,
+			sbbl, ldhygdzc, swypzzy,
+			zysbzzy, tlcbhkhthqtyssbzzy, jsjtxhqtdzsbzzy,
+			yqybzzy,
+			xxcsrjhxxjsfwy, qthy, yxycxkcdgdzc, dwjzbcg100wydyfyqsb,
+			ldhyxxwlqyyfhscjygydyqsb, dwjzbcg5000ydgdzc, zj)
+			values (?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert021</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb17(pzxh, fbxh,
+			sbbl, qdsbzcss,
+			qdsbzcss_xszrbmzcss, qdsbzcss_chfszcsh,
+			qdsbzcss_gdzcbfqlss,
+			qdsbzcss_scxswzcss, qdsbzcss_azgpjyfsss,
+			qdsbzcss_fzjgsbzcss,
+			qdsbzcss_qt, zxsbzcss, zxsbzcss_hbzcss,
+			zxsbzcss_fhbzcss,
+			zxsbzcss_tzss, zxsbzcss_qt, hj)
+			values (?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert022</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb18(pzxh, fbxh,
+			xmlx, xmmc, zzje, czsr,
+			pcsr, jsjc, ssje, nstzje)
+			values (?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, Double, Double,
+			Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert023</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB19(pzxh, fbxh,
+			sbbl, zwcz,
+			zwcz_fhbxzcqczw, zwcz_zzg, gqsg, gqsg_sjkjczgqsg, zcsg,
+			zcsg_sjkjczzcsg, qyhb, qyhb_tykzxqy, qyhb_ftykzxqy, qyfz, qt,
+			qt_fhbxzcdwtz, hj)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert024</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB20(pzxh, fbxh,
+			bqsr, bqsr_bqbcsr,
+			bqsr_dbzyzcjzbc, bqsr_ybqazjybc, bqsr_dtctyssjybc,
+			bqsr_ybqshqdbxpk,
+			bqsr_qt, bqsr_bqzcczsr, bqzc, bqzc_bqfyzc,
+			bqzc_azzgfsfy,
+			bqzc_tgqjgzflf, bqzc_lscfbqzcfsfy, bqzc_glzcbqazfy,
+			bqzc_qtfy,
+			bqzc_bqzclzzc, bqsdhss, bnynsdebqsdhss, bnynsdebqsdhss_sd,
+			bnynsdebqsdhss_yckc, bnynsdebqsdhss_fqkc, jsdqsybqsyhss,
+			yqndbqssdqkcje, nstzje)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert025</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB21(pzxh, fbxh,
+			sbbl, bxgs, bxgs_wdqzrzbj,
+			bxgs_wjpkzbj, bxgs_yfsybawjpkzbj,
+			bxgs_yfswbawjpkzbj, bxgs_jzfszbj,
+			bxgs_sxzrzbj, bxgs_cqjkxzrzbj,
+			bxgs_bxbzjj, bxgs_qt, zqhy,
+			zqhy_zqjysfxjj, zqhy_zqjsfsjj,
+			zqhy_zqtzzbhjj, zqhy_qt, qhht,
+			qhht_jysfxzbj, qhht_gsfxzbj,
+			qhht_tzzbzjj, qhht_qt, jrqy,
+			jrqy_snhzxqydksszbj, jrqy_dksszbj,
+			jrqy_qt, zxqyxxdbjg,
+			zxqyxxdbjg_dbpczb, zxqyxxdbjg_wdqzrzb,
+			zxqyxxdbjg_qt, qt, hj)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert026</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb22(pzxh, fbxh,
+			fblc, nd, nstzhsd,
+			heflqyzrkmbkse, dnkmbkse, yqndkmbkse_4,
+			yqndkmbkse_3, yqndkmbkse_2,
+			yqndkmbkse_1, yqndkmbkse_hj,
+			bndsjmbyqndkse, kjzyhnd_mbkse)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert027</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE> insert into
+			WBJK_SB_NDSDS_2014_FB23(pzxh, fbxh, mssr, gzlxsr,
+			fhtjsy, fhtjfyysr, mssr_qtzxyh,
+			qjjzsr, zqtzsr, zqtztzzsr, zqtzglrysr,
+			dfzfzqlxsr, szdqqycjsr,
+			qhbzjyhcklxsr,
+			bxbzjjsr, mssr_qtzxyh_qt, jjsr,
+			qyzhlysr, jjsr_qtzxyh, snlxbfsr, tljszqlxsr,
+			jjsr_qtzxyh_qt, jjkc,
+			yjkffyjjkc, azcjrjjkc, zfcjrygzjjkc,
+			qtjyrygzjjkc,
+			jjkc_qtzxyh, hj)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String,
+			String, Double, Double, Double, Double,
+			Double, Double, Double, Double,
+			Double,
+			Double, Double, Double, Double,
+			Double, Double, Double, Double, Double,
+			Double,
+			Double, Double, Double,
+			Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert028</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB24(pzxh, fbxh, btzqymc, tzxz,
+			tzcb, tzbl, lrfpsj, gxhltzsyje, qssyzc, wfplrxy, qs_yqrgxsd, chtzzc,
+			jstzbl, cstzcb, cshtzcb, chwfplrgj, ch_yqrgxsd, hj)
+			values (?, ?, ?,
+			?, ?, ?, to_date(?,'yyyy-mm-dd hh24:mi:ss'), ?, ?, ?, ?,
+			?, ?, ?, ?,
+			?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, Double, Double,
+			String, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert029</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB25(pzxh, fbxh, cpmc, zsqdsj,
+			zsyxq_z,
+			zsbh, yhml_lb, zhlyzymc, zybl, gdbz, srze, jjsr)
+			values (?, ?,
+			?, to_date(?,'yyyy-mm-dd hh24:mi:ss'), ?, ?, ?, ?, ?, ?, ?,
+			?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, String, String,
+			String, String, Double, String, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert030</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into WBJK_SB_NDSDS_2014_FB26(pzxh, fbxh, xedklxsrze,
+			xedklxjjsr,
+			bfsrze, ybfsr, fbfsr, fcbfsr, bfjjsr, qtxedklxsrze,
+			qtxedklxjjsr,
+			hj)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert031</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB27(pzxh, fbxh, yfxmmc,
+			yfxhfy, yfryfy, yfwhf, yfwxzctxf, yfgzf, yfcgjdfy, yfsyf, yfsjyfy,
+			ndyffyhj, bzsyfbf, jjkcyffyhj, bnsydje, bnyffyjjkce, bnxcwxzcdje,
+			bnxcwxzcjjtxe, yqndwxzcbnjjtxe, wxzcbnjjtxe, bnyffyjjkcehj)
+			values (?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert032</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB28(pzxh, fbxh,
+			sbbl, nlmyyxm, msxm, scdzz, nzwxpzdxy, zycdzz, lmdpyhzz, scjqdsy,
+			lcpdcj, ncpcjgdfwyxm, ncpcjg, yybl, msxm_qt, jbzsxm, zwzz, hsnlyz,
+			jbzsxm_qt, ggjcssxm, gkmtxm, jcxm, tlxm, glxm, csggjtxm, dlxm, slxm,
+			ggjcssxm_qtxm, jnjsxm, ggwsclxm, ggljclxm, zqzhkflyxm, jnjpjsgzxm,
+			hsdhxm, jn_qtxm, jszrxm, jszrsdbcbf, jszrsdcbf, qtzxyhxm,
+			ssqjfzjzxm,
+			htnyglxm, qtzxyhxm_qt, hj)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert033</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into WBJK_SB_NDSDS_2014_FB29(pzxh, fbxh, bnxzgqtze,
+			ssgddkl, bnxzkdkgqtze, jzwdkgqtzye, bnkdkgqtze, bnkdkynssde,
+			bnsjdkynssde, jzhnddkgqtzye)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert034</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into WBJK_SB_NDSDS_2014_FB30(pzxh, fbxh, xxwlqy,
+			gxjsqy, mzzzdfqy, qtzxyh, jjtqgxjsqy, jyxwhsydwzzqy, dmqy,
+			szdqssyzdqy, szdqncxys, szdqdcjjyqy, jsxjxfwqy, xjkndqxbqy,
+			xjtsjjkfqxbqy, zczdqtcyjyqy, jcdlscqy_8, jcdlscqy_25,
+			jcdlscqytze_80,
+			xbjcdlsjqy, gjghjcdlsjqy, fhtjdrjqy, gjghbjnzdrjqy,
+			xbdqgllcyqy,
+			sczpscryzypqy, zzcxgxjsqy, xsgdqssyhqy, hqxqdxdhfwyqy,
+			qtzxyh_qt,
+			djxsjmsyh, hj)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert035</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into WBJK_SB_NDSDS_2014_FB31(pzxh, fbxh, zsbh, zsqdsj,
+			gdfwmc,
+			sffszdsg, sfyhjdwfwgxw, sffstpsxw, bngxjssr, cpfwsr, jsxsr,
+			bnqyzsr,
+			bnzqyzsrbl, bnkjrys, bnyfrys, bnzgzs, bnkjryzzgzsbl,
+			bnyfryzzgzsbl,
+			bngjdgxyffyje, nbyjkftr, ryrg, zjtr, zjfyyzqfytx, sjfy,
+			zbdsf,
+			wxzctx, qtfy, kjryffydqtfy, wtwbyjkffy, jndwbyff, jwdwbyff,
+			bnyffyzxssrbl, jmsje)
+			values (?, ?, ?, to_date(?,'yyyy-mm-dd
+			hh24:mi:ss'), ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, String, String,
+			String, String, Double, Double, Double, Double, Double, String,
+			String, String, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert036</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into WBJK_SB_NDSDS_2014_FB32(pzxh, fbxh, qyclrq,
+			rjqyzsqdrq,
+			rjqyrdzsbh, rjcpdjzsbh, jsjdjrdzsbh, jcdlscqyrdwh,
+			jcdlsjqyrdzsbh,
+			qybnypjzgzrs, dxzkxlzgrs, yjkfryrs, dxzkrszzgbl,
+			yfryzzgbl, qysrze,
+			jcdlzzxssr, jcdlxssrzqysrzebl, jcdlsjxssr,
+			jcdlzzsjxssr,
+			jcdlsjsrzqysrzebl, jcdlzzsjsrzqysrzebl, rjcpkfxssr,
+			qrsrjxssr,
+			rjcpzzkfxssr, qrsrjzzkfxssr, rjcpkfxssrzqysrzebl,
+			qrsrjxssrzqysrzebl,
+			rjcpzzkfxssrzqysrzebl, qrsrjzzkfxssrzqysrzebl,
+			yjkffyze,
+			zgjnfsyjkffyje, yjkfzezqyxssrzebl, jnfsfyjezyjkffyzebl,
+			qyzgzs,
+			rjkfjsry, rjkfjsryzqyzgzsbl, qynzsr, qynrjxssr, zcrjxssr,
+			rjxssrzqynzsrbl, zcrjsrzrjxssrbl, rjjsjcpdyjkfjf, rjjsyjjfzqynrjsrbl,
+			jmsje)
+			values (?, ?, to_date(?,'yyyy-mm-dd hh24:mi:ss'),
+			to_date(?,'yyyy-mm-dd
+			hh24:mi:ss'), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, String, String,
+			String, String, String, String, String, String, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert037</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB33(pzxh, fbxh,
+			fblc, nd, bndmqynse,
+			bnyxdmdzysbtze, bnkdmse, yqndydme_5, yqndydme_4,
+			yqndydme_3,
+			yqndydme_2, yqndydme_1, yqndydme_xj, bnsjdmdgndse,
+			kjzyhnddmdse,
+			bnyxdmdhjbhzysbtze, bnyxdmjnjsdzysbtze,
+			bnyxdmdaqsczysbtze)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, String, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert038</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB34(pzxh, fbxh,
+			gj_dm, jwsqsd, jwsdnstzhsd,
+			mbjwyqndks, jwynssde, djjnks,
+			djjnksjwynssde, sl, jwsdynse,
+			jwsdkdmse, jwsddmye, bnkdmjwsdse,
+			wcgjwsdsdmxeye, bnkdmyqndwdmjwsdse,
+			ajybf_sljsdme, ajybf_jsdme,
+			ajybf_jsdme1, ajybf_xj, jwsddmsdsehj)
+			values (?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert039</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB35(pzxh, fbxh,
+			gj_dm, shsd_fzjgyylrsd,
+			shsd_ghqyxtzsd, shsd_lxsd, shsd_zjsd,
+			shsd_txqsyfsd, shsd_cczrsd,
+			shsd_qtsd, shsd_xj, kdmd_zjjndsdse,
+			kdmd_jjfddsdse, kdmd_xsrrdmse,
+			kdmd_xj, jwsqsd, fzjgsrzcnstze,
+			fzjgkcygcbfy, sdxgcbfyzc, sdnstzhsd)
+			values (?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert040</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into WBJK_SB_NDSDS_2014_FB36(pzxh, fbxh,
+			gj_dm, fsjmb_yqndfsjkse,
+			fsjmb_bnfsfsjkse, fsjmb_bnmbfsjkse,
+			fsjmb_jzyhfsjkse, sjmb_yqnd_q5n,
+			sjmb_yqnd_q4n, sjmb_yqnd_q3n,
+			sjmb_yqnd_q2n, sjmb_yqnd_q1n,
+			sjmb_yqnd_xj, sjmb_bnfssjkse,
+			sjmb_bnmbsjkse, sjmb_yhnd_q4n,
+			sjmb_yhnd_q3n, sjmb_yhnd_q2n,
+			sjmb_yhnd_q1n, sjmb_yhnd_bn,
+			sjmb_yhnd_xj) values (?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert041</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into wbjk_sb_ndsds_2014_fb37(pzxh, fbxh,
+			gj_dm, qwnjw_q5n,
+			qwnjw_q4n, qwnjw_q3n, qwnjw_q2n, qwnjw_q1n,
+			qwnjw_xj, bnsjdm_q5n,
+			bnsjdm_q4n, bnsjdm_q3n, bnsjdm_q2n, bnsjdm_q1n,
+			bnsjdm_xj,
+			jzyhnd_q4n, jzyhnd_q3n, jzyhnd_q2n, jzyhnd_q1n, jzyhnd_bn,
+			jzyhnd_xj)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?,
+			?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert042</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>
+			insert into wbjk_sb_ndsds_2014_fb38(pzxh, fbxh, zjgsjynsdse,
+			sdynsdse,
+			sddmsdse, ftbnsjynsds, ljyyfyftsds, xmbszdyfsdse,
+			zjgyftsdse,
+			czjzyfpsdse, fzjgyftsdse, qzbmyftsdse, bndyftybtsds,
+			ftbnybtsdse,
+			jzfpbnybtsdse, fzjgftbnybtsdse, qzftbnybtdsdse,
+			zjgjwsddmhdynsdse,
+			zjgbnybtdsdse)
+			values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+			?, ?, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double, Double, Double, Double,
+			Double, Double, Double, Double, Double]
+		</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>insert043</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE repeat="true">
+			insert into sb_jdsds_2008_fb1(pzxh, xh, fbxh, nsrsbh, sbrq, tbrq, sssq_q, sssq_z, jglx, jgnsrsbh, jgmc, srze, gzze, zcze, hj, fpbl, se, nsr_swjg_dm, swjg_dm, lrr_dm, lrrq, xgr_dm, xgrq, csbz_s, csbz_x, zjgynsdse, zjgftsdse, zyfpsdse, fzjgftsdse, ftqysds_pz_dm) 
+			values (?, ?, ?, ?, sysdate, sysdate, to_date(?,'yyyy-mm-dd hh24:mi:ss'), to_date(?,'yyyy-mm-dd hh24:mi:ss'), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?, sysdate, ?, ?, ?, ?, ?, ?, ?)
+		</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String,String,String,String,String,String,String,String,String,Double,Double,Double,Double,Double,Double,String,String,String,String,String,String,Double,Double,Double,Double,String]</PARAMETER_TYPE_LIST>
+		<DESCRIPTION></DESCRIPTION>
+	</SQL>
+	<SQL>
+		<NAME>WBJK_SB_SBXX_COMMIT</NAME>
+		<TYPE>update</TYPE>
+		<CLAUSE>UPDATE WBJK_SB_SBXX SET CSCS=1 WHERE PZXH=?</CLAUSE>
+		<PARAMETER_TYPE_LIST>[String]</PARAMETER_TYPE_LIST>
+		<DESCRIPTION>CTAIS提供的UPDATE TRIGGER向正式申报表插入数据</DESCRIPTION>
+	</SQL>
+</TASK>
+</ROOT>

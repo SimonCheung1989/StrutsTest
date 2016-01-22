@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+ <TASK>
+        <NAME>query_jssq_sb_qcs_cpyxx</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的成品油信息</DESCRIPTION>
+        <SQL>
+            <NAME>query_jssq_sb_qcs_cpyxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+               select djxh,
+			       lrrq,
+			       lrr_dm,
+			       pzxh,
+			       qckcdcsl,
+			       qckczgje,
+			       qckczgsl,
+			       qcsuuid,
+			       sjgsdq,
+			       sjgsrq,
+			       skssqq,
+			       skssqz,
+			       xgrq,
+			       xgr_dm,
+			       ypxh,
+			       zfbz_1      
+			  from HX_ZGXT.sb_qcs_ybnsrcpy
+                where djxh = ?
+                and skssqq &lt;=to_date(?,'yyyy-MM-DD')
+                and skssqz >=to_date(?,'yyyy-MM-DD')
+                and  ZFBZ_1 is   null 
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>query_jssq_yh_jmsspjg</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的减免税审批结果</DESCRIPTION>
+        <SQL>
+            <NAME>query_jssq_yh_jmsspjg</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select
+                    MXUUID     ,
+                    YHPZUUID   ,
+                    LCSLID     ,
+                    DJXH       ,
+                    JMSSPSX_DM ,
+                    ZSXM_DM    ,
+                    ZSPM_DM    ,
+                    SSYHLX_DM  ,
+                    JMQXQ      ,
+                    JMQXZ      ,
+                    JZFD       ,
+                    JZSL       ,
+                    NVL(JZED,0)   JZED    ,
+                    SJGSDQ     ,
+                    SJGSRQ     ,
+                    SJJZRQ     ,
+                    LRR_DM     ,
+                    LRRQ       ,
+                    XGR_DM     ,
+                    XGRQ       ,
+                    JMXMDL_DM  ,
+                    JMXMXL_DM  ,
+                    JMWJ_DM    ,
+                    JMLX_DM    ,
+                    NYNSE      ,
+                    NJMSE      ,
+                    SJNYNSE    ,
+                    JMZLX_DM   ,
+                    YXBZ
+                from HX_ZGXT.YH_JMSSPJG
+                where djxh = ?
+                and JMQXQ &lt;=to_date(?,'yyyy-MM-DD')
+                and JMQXZ >=to_date(?,'yyyy-MM-DD')
+                and zsxm_dm = '10101' and yxbz='Y'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>query_jssq_sb_zzs_ldsk</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的增值税留抵税款</DESCRIPTION>
+        <SQL>
+            <NAME>query_jssq_sb_zzs_ldsk</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select
+                    LDSKLSUUID  ,
+                    DJXH        ,
+                    PZXH        ,
+                    SQLDPZXH    ,
+                    SKSSQQ      ,
+                    SKSSQZ      ,
+                    SQLDSE      ,
+                    SQLDSEBNLJ  ,
+                    BQQMLDSE    ,
+                    BQQMLDSEBNLJ,
+                    LDLX        ,
+                    ZFRQ_1      ,
+                    ZGSWSKFJ_DM ,
+                    SWJG_DM     ,
+                    LRR_DM      ,
+                    LRRQ        ,
+                    XGR_DM      ,
+                    XGRQ        ,
+                    SJGSDQ      ,
+                    SJGSRQ
+                from HX_ZGXT.SB_ZZS_LDSKYGZ
+                where djxh = ?
+                    and SKSSQQ &lt;=to_date(?,'yyyy-MM-DD')
+                    and SKSSQZ >=to_date(?,'yyyy-MM-DD')
+                and zfrq_1 is null
+
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>query_jssq_sb_qcs_zzsybnsrsbygz</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的期初数_增值税一般纳税人申报</DESCRIPTION>
+        <SQL>
+            <NAME>query_jssq_sb_qcs_zzsybnsrsbygz</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select
+                     QCSUUID,
+                     DJXH,
+                     PZXH,
+                     SKSSQQ,
+                     SKSSQZ,
+                     YSLWXSE,
+                     XMFL,
+                     ASYSLZSHWJLWXSE,
+                     YSHWXSE,
+                     NSJCTZDXSE,
+                     AJYZSBFZSHWXSE,
+                     QZNSJCTZDXSE,
+                     MDTBFCKHWXSE,
+                     MSHWJLWXSE,
+                     MSHWXSE,
+                     MSLWXSE,
+                     JXSEZC,
+                     ASYSLJSDNSJCYBJSE,
+                     JYZSBFJSDYNSE,
+                     AJYZSBFJSDNSJCYBJSE,
+                     YNSEHJ,
+                     BQJNSQYNSE,
+                     BQJNQJSE,
+                     QMWJSE,
+                     QCWJCBSE,
+                     BQRKCBSE,
+                     XXSE,
+                     MDTHWYTSE,
+                     SJDKSE,
+                     YNSEJZE,
+                     SSCKKJZYJKSTSE,
+                     BYQCWJCBSE,
+                     BYQCWJSE,
+                     ZFBZ_1,
+                     XGR_DM,
+                     XGRQ,
+                     LRR_DM,
+                     LRRQ,
+                     JXSE,
+                     YNSE,
+                     YJSE,
+                     QCWJSE,
+                     BQYJSE,
+                     SJGSDQ,
+                     SJGSRQ,
+                     MDTSBFCKHWBDDKJXSE,
+                     BQYBTSE,
+                     YSFWKCXM17SLDYXDCZLFWLJ,
+                     YSFWKCXM11SLDYSFWLJ,
+                     YSFWKCXM6SLDYSFWLJ,
+                     YSFWKCXM3ZSLDYSFWLJ,
+                     YSFWKCXMMDTSDYSFWLJ,
+                     YSFWKCXMMSDYSFWLJ,
+                     QMWJCBSEBYS,
+                     QMWJCBSELJS,
+                     JZJT_SJTSE,
+                     ZZSSKXTZYSBFJJSWHF,
+                     FZJGYZJNSK
+                from HX_ZGXT.sb_qcs_zzsybnsrsbygz
+                where djxh = ?
+                    and SKSSQQ &lt;=to_date(?,'yyyy-MM-DD')
+                    and SKSSQZ >=to_date(?,'yyyy-MM-DD')
+                    and ZFBZ_1='N'
+
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+
+    <TASK>
+        <NAME>insert_sb_qcs_zzsybnsrxxtqjgb</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>向一般纳税人期初信息提取结果表中插入数据</DESCRIPTION>
+        <SQL>
+            <NAME>insert_sb_qcs_zzsybnsrxxtqjgb</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                <UPDATE_CLAUSE>
+                    insert into SB_QCS_ZZSYBNSRXXTQJGB
+                    (djxh, sssqq, sssqz,qcxx,ldskxx,jmxx,cpyxx,zy,transeq, yxbz)
+                    values
+                    (?, to_date(?,'YYYY-MM-DD'), to_date(?,'YYYY-MM-DD'),?,?,?,?,?,?,'Y')
+                </UPDATE_CLAUSE>
+                <SELECT_CLAUSE>
+                    select  qcxx, ldskxx , jmxx,cpyxx
+                    from SB_QCS_ZZSYBNSRXXTQJGB
+                    where  transeq=?  for update
+                </SELECT_CLAUSE>
+            </CLAUSE> 
+            <PARAMETER_TYPE_LIST>[String,String,String,CLOB,CLOB,CLOB,CLOB,String,String,String]</PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <!--<TASK>
+        <NAME>update_sb_qcs_zzsybnsrxxtqjgb_tb</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>更新一般纳税人期初信息提取结果表中的数据，此处为更新同步获取的数据</DESCRIPTION>
+        <SQL>
+            <NAME>update_sb_qcs_zzsybnsrxxtqjgb_tb</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE>
+                <UPDATE_CLAUSE>
+                    update SB_QCS_ZZSYBNSRXXTQJGB
+                        set qcxx = ?, ldskxx = ?, jmxx = ?,transeq=?
+                    where djxh = ?
+                        and sssqq=to_date(?,'YYYY-MM-DD')
+                        and sssqz=to_date(?,'YYYY-MM-DD')
+                        and yxbz='Y'
+                </UPDATE_CLAUSE>
+                <SELECT_CLAUSE>
+                    select  qcxx, ldskxx , jmxx
+                       from SB_QCS_ZZSYBNSRXXTQJGB
+                    where  transeq=?  for update
+                </SELECT_CLAUSE>
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST>[CLOB,CLOB,CLOB,String,String,String,String,String]</PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>-->
+
+
+
+
+    <TASK>
+        <NAME>update_sb_qcs_zzsybnsrxxtqjgb_yb</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>更新一般纳税人期初信息提取结果表中的数据，此处为更新异步获取的数据</DESCRIPTION>
+        <SQL>
+            <NAME>update_sb_qcs_zzsybnsrxxtqjgb_yb</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                <UPDATE_CLAUSE>
+                    update SB_QCS_ZZSYBNSRXXTQJGB
+                    set yjskxx= ?
+                    where transeq = ? and  yxbz = 'Y'
+
+                </UPDATE_CLAUSE>
+                <SELECT_CLAUSE>
+                    select  yjskxx
+                        from SB_QCS_ZZSYBNSRXXTQJGB
+                    where transeq = ? for update
+                </SELECT_CLAUSE>
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST>[CLOB,String,String]</PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>select_sb_qcs_zzsybnsrxxtqjgb</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询一般纳税人期初信息提取结果表中的数据</DESCRIPTION>
+        <SQL>
+            <NAME>select_sb_qcs_zzsybnsrxxtqjgb</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                    select s.djxh,s.TRANSEQ, s.qcxx, s.ldskxx, s.jmxx,s.cpyxx, s.yjskxx, to_char(s.sssqq,'yyyy-mm-dd') as sssqq, to_char(s.sssqz,'yyyy-mm-dd') as sssqz
+                        from SB_QCS_ZZSYBNSRXXTQJGB s
+                    where s.djxh = ?
+                        and s.sssqq =to_date(?,'YYYY-MM-DD')
+                        and s.sssqz = to_date(?,'YYYY-MM-DD')
+                        and yxbz = 'Y' and yjskxx is not null
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+
+    <TASK>
+        <NAME>update_sb_qcs_zzsybnsrxxtqjgb_transeq</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>更新一般纳税人期初信息提取结果表中的交易流水号数据</DESCRIPTION>
+        <SQL>
+            <NAME>update_sb_qcs_zzsybnsrxxtqjgb_transeq</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                    update SB_QCS_ZZSYBNSRXXTQJGB
+                        set transeq=?
+                    where djxh = ?
+                        and sssqq=to_date(?,'YYYY-MM-DD')
+                        and sssqz=to_date(?,'YYYY-MM-DD')
+                        and yxbz='Y'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>query_sb_qcs_zzsybnsrxxtqjgb_transeq</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据交易流水号获取数据信息</DESCRIPTION>
+        <SQL>
+            <NAME>query_sb_qcs_zzsybnsrxxtqjgb_transeq</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select
+                    s.djxh,
+                    s.TRANSEQ,
+                    s.qcxx,
+                    s.ldskxx,
+                    s.jmxx,
+                    s.yjskxx,
+                    to_char(s.sssqq,'yyyy-mm-dd') as sssqq,
+                    to_char(s.sssqz,'yyyy-mm-dd') as sssqz
+                 from SB_QCS_ZZSYBNSRXXTQJGB s
+                where s.TRANSEQ = ?
+                    and yxbz = 'Y'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>call_proc_get_zzsybnsrqcxx</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>query</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>调用批量获取增值税一般纳税人的存储过程</DESCRIPTION>
+        <SQL>
+            <NAME>call_proc_get_zzsybnsrqcxx</NAME>
+            <TYPE>procedure</TYPE>
+            <CLAUSE>
+                {call proc_zzsybnsrqcxxpltq(?,?,?,?)}
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST>[IN.VARCHAR,IN.VARCHAR,IN.VARCHAR,OUT.VARCHAR]</PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+
+    <TASK>
+        <NAME>query_wtqwzsj_zzsybnsrqcxx</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询未提取完整的增值税一般纳税人的期初信息</DESCRIPTION>
+        <SQL>
+            <NAME>query_wtqwzsj_zzsybnsrqcxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select
+                s.djxh,
+                s.TRANSEQ,
+                s.qcxx,
+                s.ldskxx,
+                s.jmxx,
+                s.yjskxx,
+                to_char(s.sssqq,'yyyy-mm-dd') as sssqq,
+                to_char(s.sssqz,'yyyy-mm-dd') as sssqz
+                from SB_QCS_ZZSYBNSRXXTQJGB s
+                where s.yjskxx is null
+                and yxbz = 'Y' and ZGSWSKFJ_DM=? and s.TRANSEQ='11111111111'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>delete_sb_qcs_zzsybnsrxxtqjgb</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>删除增值税一般纳税人的期初信息</DESCRIPTION>
+        <SQL>
+            <NAME>delete_sb_qcs_zzsybnsrxxtqjgb</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+               delete
+                from SB_QCS_ZZSYBNSRXXTQJGB s
+                where  djxh=?
+                    and sssqq=to_date(?,'YYYY-MM-DD')
+                    and sssqz=to_date(?,'YYYY-MM-DD')
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+
+
+</ROOT>

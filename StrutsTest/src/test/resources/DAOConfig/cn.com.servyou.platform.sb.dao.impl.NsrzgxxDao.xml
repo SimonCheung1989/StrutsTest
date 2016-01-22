@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<ROOT>
+	
+	<TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.NsrzgxxDaoImpl.getNsrzgxx</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询中间库纳税人资格信息</DESCRIPTION>
+        <SQL>
+            <NAME>getNsrzgxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+       select DJXH,
+       LCSLID,
+       LRRQ,
+       LRR_DM,
+       NSRZGLX_DM,
+       QXBZ,
+       RDPZUUID,
+       SJGSDQ,
+       SJGSRQ,
+       SJZZRQ,
+       XGRQ,
+       XGR_DM,
+       to_char(YXQQ,'yyyy-mm-dd') YXQQ,
+       to_char(YXQZ,'yyyy-mm-dd') YXQZ
+       from RD_NSRZGXX_JGB
+       where DJXH = ?
+       and YXQQ&lt;=to_date(?,'yyyy-MM-DD')
+       and YXQZ>=to_date(?,'yyyy-MM-DD')
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+   
+    <TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.NsrzgxxDaoImpl.insertNsrzgxx</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>insert</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>插入纳税人资格信息</DESCRIPTION>
+		<SQL>
+			<NAME>insertSfzrdxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE repeat="true">
+				insert into RD_NSRZGXX_JGB
+  (DJXH,
+   LCSLID,
+   LRRQ,
+   LRR_DM,
+   NSRZGLX_DM,
+   QXBZ,
+   RDPZUUID,
+   SJGSDQ,
+   SJGSRQ,
+   SJZZRQ,
+   XGRQ,
+   XGR_DM,
+   YXQQ,
+   YXQZ)
+values
+  (?,
+   ?,
+   to_date(?, 'yyyy-mm-dd hh24:mi:ss'),
+   ?,
+   ?,
+   ?,
+   ?,
+   ?,
+   to_date(?, 'yyyy-mm-dd hh24:mi:ss'),
+   to_date(?, 'yyyy-mm-dd hh24:mi:ss'),
+   to_date(?, 'yyyy-mm-dd hh24:mi:ss'),
+   ?,
+   to_date(?, 'yyyy-mm-dd hh24:mi:ss'),to_date(?, 'yyyy-mm-dd hh24:mi:ss'))
+	</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>	
+	
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.NsrzgxxDaoImpl.deleteNsrzgxx</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>update</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>刪除纳税人资格信息</DESCRIPTION>
+		<SQL>
+			<NAME>deleteSfzrdxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				 delete from RD_NSRZGXX_JGB where DJXH=?
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>	
+	
+</ROOT>

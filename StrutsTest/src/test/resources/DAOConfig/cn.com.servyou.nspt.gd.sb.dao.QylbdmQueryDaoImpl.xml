@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+	<TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.QylbdmQueryDaoImpl.getQylbDmList</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询纳税人企业类别代码</DESCRIPTION>
+        <SQL>
+            <NAME>getQylbDmList</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+            select t.qylb_dm from SB_NSRQYLB t where t.djxh=?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.QylbdmQueryDaoImpl.getQylbDmAndNsrzgDm</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>纳税人资格代码与企业类别代码映射表</DESCRIPTION>
+        <SQL>
+            <NAME>getQylbDmAndNsrzgDm</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+            select t.nsrzg_dm,t.qylb_dm from CS_QYLBDZB t
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+</ROOT>

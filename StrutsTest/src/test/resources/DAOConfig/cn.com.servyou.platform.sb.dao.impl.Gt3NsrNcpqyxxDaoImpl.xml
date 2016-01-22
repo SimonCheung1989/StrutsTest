@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.Gt3NsrNcpqyxxDaoImpl.queryIsNcpqy</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的增值税农产品核定表——农产品企业标志</DESCRIPTION>
+        <SQL>
+            <NAME>query_jssq_ncpqybz</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				select count(1)
+				 from HX_ZGXT.sb_zss_ncpjxkcshdb t
+				 where djxh = ?
+				 and t.hdqxz >= to_date(?,'yyyy-MM-DD')
+				 and t.hdqxq &lt;= to_date(?,'yyyy-MM-DD')
+				 and (t.zfbz_1 is null or t.zfbz_1='N')
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+	<TASK>
+	     <NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.Gt3NsrNcpqyxxDaoImpl.queryNcpxx</NAME>
+	     <DATABASE_NAME>jssqdb</DATABASE_NAME>
+	     <TYPE>select</TYPE>
+	     <BATCH>false</BATCH>
+	     <TRANSACTION>false</TRANSACTION>
+	     <EXECUTOR></EXECUTOR>
+	     <DESCRIPTION>查询金税三期数据库中的增值税农产品核定表——农产品信息</DESCRIPTION>
+	     <SQL>
+	         <NAME>query_jssq_ncpxx</NAME>
+	         <TYPE>query</TYPE>
+	         <CLAUSE usePreparedStatement="true">
+				select t.cpmc_1, t.hyncpmc, t.ncpdhsl
+				 from HX_ZGXT.sb_zss_ncpjxkcshdb t
+				 where djxh = ?
+				 and t.hdqxz >= to_date(?,'yyyy-MM-DD')
+				 and t.hdqxq &lt;= to_date(?,'yyyy-MM-DD')
+				 and (t.zfbz_1 is null or t.zfbz_1='N')
+	         </CLAUSE>
+	         <CLAUSE>
+	         </CLAUSE>
+	         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+	         <DESCRIPTION></DESCRIPTION>
+	     </SQL>
+	 </TASK>
+</ROOT>

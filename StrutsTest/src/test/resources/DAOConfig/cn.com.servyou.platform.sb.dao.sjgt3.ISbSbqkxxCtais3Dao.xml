@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.SbSbqkxxCtais3DaoImpl.querySbqkByDjxhAndSkssqzCtais3</NAME>
+		<DATABASE_NAME>jssqdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION></DESCRIPTION>
+		<SQL>
+			<NAME>querySbqkByDjxhAndSkssqzCtais3</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE usePreparedStatement="true">
+					select tt.pzxh,
+					       tt.djxh,
+					       tt.yzpzzl_dm,
+					       dd.dzbzdszlmc,
+					       tt.nsrsbh,
+					       tt.nsrmc,
+					       tt.sbrq_1,
+					       tt.tbrq_1,
+					       tt.ybtse,
+					       tt.skssqq,
+					       tt.skssqz,
+					       tt.zgswskfj_dm,
+					       tt.zfbz_1,
+					       tt.zfrq_1,
+					       tt.xgrq,
+					       (select xx.xtmc from dm_gy_xtbm xx where tt.xtbm = xx.xtbm) xtmc
+					  from sb_sbb tt, dm_gy_dzbzdszl dd
+					 where tt.djxh = ?
+					   and tt.yzpzzl_dm = dd.dzbzdszl_dm
+					   and tt.skssqz = to_date(?, 'yyyy-MM-DD')
+					   and tt.gzlx_dm_1 &lt;> '2'
+					 order by tt.lrrq desc
+
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.SbSbqkxxCtais3DaoImpl.queryNbSbxxCtais3</NAME>
+		<DATABASE_NAME>jssqdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION></DESCRIPTION>
+		<SQL>
+			<NAME>queryNbSbxxCtais3</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE usePreparedStatement="true">	
+             		select tt.pzxh,
+					       tt.djxh,
+					       tt.yzpzzl_dm,
+					       dd.dzbzdszlmc,
+					       tt.nsrsbh,
+					       tt.nsrmc,
+					       tt.sbrq_1,
+					       tt.tbrq_1,
+					       tt.ybtse,
+					       tt.skssqq,
+					       tt.skssqz,
+					       tt.zgswskfj_dm,
+					       tt.zfbz_1,
+					       tt.zfrq_1,
+					       tt.xgrq,
+					       (select xx.xtmc from dm_gy_xtbm xx where tt.xtbm = xx.xtbm) xtmc
+					  from sb_sbb tt, dm_gy_dzbzdszl dd
+					 where tt.djxh = ?
+					   and tt.yzpzzl_dm = dd.dzbzdszl_dm
+					   and tt.skssqq = to_date(?, 'yyyy-MM-DD')
+   					   and tt.skssqz = to_date(?, 'yyyy-MM-DD')
+					   and tt.gzlx_dm_1 &lt;> '2'
+					 order by tt.lrrq desc
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+</ROOT>

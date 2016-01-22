@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<ROOT>
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.ZzsYbnsrDaoImpl.selectByFzjgbz</NAME>
+		<DATABASE_NAME>jssqdb</DATABASE_NAME>
+		<TYPE>query</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR />
+		<DESCRIPTION>增值税一般纳税人分支机构标志查询</DESCRIPTION>
+		<SQL usePreparedStatement="true">
+			<NAME>selectByFzjgbz</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE>
+			SELECT COUNT(1) as fzjgbz
+			FROM HX_ZGXT.RD_HZNSQYRDSQSPB A,
+				HX_ZGXT.RD_HZNSQYRDSQ_BHZMXXX B,
+				HX_ZGXT.RD_HZNSQYRDSQ_MXB C
+				WHERE A.HZNSUUID = B.HZNSUUID
+				AND A.HZNSUUID = C.HZNSUUID
+				AND A.ZFBZ_1 = 'N'
+				AND C.YXBZ = 'Y'
+				AND C.SBJNFS_DM = '2'
+				AND a.zsxm_dm='10101'
+				AND a.zstybz='Y'
+				AND b.bhzrdjxh = c.bhzrdjxh
+				AND c.hznsyxqq&lt;=to_date(?,'yyyy-MM-DD')
+				AND c.hznsyxqz>=to_date(?,'yyyy-MM-DD')
+				AND c.bhzrdjxh=?
+ 		</CLAUSE>
+			<PARAMETER_TYPE_LIST />
+			<DESCRIPTION />
+		</SQL>
+	</TASK>
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.ZzsYbnsrDaoImpl.selectByZjgbz</NAME>
+		<DATABASE_NAME>jssqdb</DATABASE_NAME>
+		<TYPE>query</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR />
+		<DESCRIPTION>增值税一般纳税人总机构标志查询</DESCRIPTION>
+		<SQL usePreparedStatement="true">
+			<NAME>selectByZjgbz</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE>
+				SELECT COUNT(1) as zjgbz
+			  	   FROM HX_ZGXT.RD_HZNSQYRDSQSPB A,
+			       HX_ZGXT.RD_HZNSQYRDSQ_BHZMXXX B,
+			       HX_ZGXT.RD_HZNSQYRDSQ_MXB C
+				   WHERE A.HZNSUUID = B.HZNSUUID
+				   AND A.HZNSUUID = C.HZNSUUID
+				   AND A.ZFBZ_1 = 'N'
+				   AND C.YXBZ = 'Y'
+				   AND C.SBJNFS_DM = '2'
+				   AND a.zsxm_dm='10101'  
+				   AND a.zstybz='Y'               
+				   AND b.bhzrdjxh = c.bhzrdjxh   
+				   AND c.hznsyxqq&lt;=to_date(?,'yyyy-MM-DD')
+				   AND c.hznsyxqz>=to_date(?,'yyyy-MM-DD')
+				   AND c.djxh=?
+ 			</CLAUSE>
+			<PARAMETER_TYPE_LIST />
+			<DESCRIPTION />
+		</SQL>
+	</TASK>
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.ZzsYbnsrDaoImpl.selectSzlbdm</NAME>
+		<DATABASE_NAME>jssqdb</DATABASE_NAME>
+		<TYPE>query</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR />
+		<DESCRIPTION>税种类别代码查询</DESCRIPTION>
+		<SQL usePreparedStatement="true">
+			<NAME>checkDefpRepeatUpload</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE>
+				SELECT distinct( CASE
+				WHEN (SUBSTR(K.ZSPM_DM, 1, 6) >= '101016' AND
+				SUBSTR(K.ZSPM_DM, 1, 6) <= '101017') THEN
+				'02'
+				WHEN (SUBSTR(K.ZSPM_DM, 1, 6) < '101016' OR
+				SUBSTR(K.ZSPM_DM, 1, 6) > '101017') THEN
+				'01'
+				END) ygzlx
+				FROM HX_ZGXT.RD_SFZRDXXB K
+				WHERE K.DJXH = ?
+				AND K.ZSXM_DM = '10101'
+				AND k.rdyxqq<=to_date(?, 'yyyy-MM-DD')
+				AND k.rdyxqz>=to_date(?, 'yyyy-MM-DD')
+ 		</CLAUSE>
+			<PARAMETER_TYPE_LIST />
+			<DESCRIPTION />
+		</SQL>
+	</TASK>
+</ROOT>

@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.insertSbqkxx</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>insert</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>保存申报情况信息</DESCRIPTION>
+		<SQL>
+			<NAME>insertSbqkxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				insert into sb_sbqk(
+					sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, skssqq, skssqz, 
+					sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, sbrq, lrsj, 
+					sblx_dm, qqjymxxh, zdkkbz, xgsj, pzxh, dlrsbh, qqwjm, 
+					sbny, scpzxh, qdid,cfbz,cfcs
+				) values (
+					?, ?, ?, ?, ?, ?, to_date(?, 'yyyy-mm-dd'), 
+					to_date(?, 'yyyy-mm-dd'), ?, ?, ?, ?, ?, 
+					to_date(?, 'yyyy-mm-dd'), 
+					sysdate, 
+					?, ?, ?, 
+					sysdate, 
+					?, ?, ?, ?, ?, ?,?,?
+				)
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>	
+	
+	<TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbqkxxBySbxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报序号，更新申报状态代码、申报状态描述、凭证序号信息</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbqkxx</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		update SB_SBQK t set t.sbzt_dm=?, sbztms=?, pzxh=?, xgsj=sysdate, cfcs = cfcs+1 where t.sbxh=?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+	<TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkxxList</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据登记序号、申报所属期起止时间、申报种类代码查询纳税人申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>getSbqkxxList</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+		       select sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, 
+		       to_char(skssqq, 'yyyy-mm-dd') skssqq, to_char(skssqz, 'yyyy-mm-dd') skssqz, 
+		       sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, 
+		       to_char(sbrq, 'yyyy-mm-dd') sbrq, to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj, 
+		       sblx_dm, qqjymxxh, zdkkbz, 
+		       to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj, 
+		       pzxh, dlrsbh, qqwjm, sbny, scpzxh, qdid ,cfbz,cfcs
+		       from sb_sbqk
+ 			   where djxh = ?
+			   and skssqq = to_date(?,'yyyy-MM-DD')
+			   and skssqz = to_date(?,'yyyy-MM-DD')
+			   and sbzl_dm = ?  
+			   order by lrsj desc
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkxxByPzxhAndSbztDm</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据凭证序号和申报状态代码，获取申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>getSuccessSbqkxxBypxzh</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				select sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, 
+		        to_char(skssqq, 'yyyy-mm-dd') skssqq, to_char(skssqz, 'yyyy-mm-dd') skssqz, 
+		        sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, 
+		        to_char(sbrq, 'yyyy-mm-dd') sbrq, to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj, 
+		        sblx_dm, qqjymxxh, zdkkbz, 
+		        to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj, 
+		        pzxh, dlrsbh, qqwjm, sbny, scpzxh, qdid ,cfbz,cfcs
+		        from sb_sbqk
+				where pzxh = ? and sbzt_dm = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+      <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkxxBySbztDmAndSbny</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报状态代码和申报年月，获取申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>querySbqkxxBySbztDmAndSbny</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				select sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, 
+            to_char(skssqq, 'yyyy-mm-dd') skssqq, to_char(skssqz, 'yyyy-mm-dd') skssqz, 
+            sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, 
+            to_char(sbrq, 'yyyy-mm-dd') sbrq, to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj, 
+            sblx_dm, qqjymxxh, zdkkbz, 
+            to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj, 
+            pzxh, dlrsbh, qqwjm, sbny, scpzxh, qdid ,cfbz,cfcs
+		        from sb_sbqk
+				where sbzt_dm = ? and sbny = ? order by lrsj asc
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbqkxxByPzxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据凭证序号，更新申报状态代码和申报状态描述</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbqkxxByPzxh</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		update SB_SBQK t set t.sbzt_dm=?, sbztms=?, xgsj=sysdate , cfcs = cfcs+1 where t.pzxh=?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbqkxxByDjxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据登记序号，更新申报状态代码、申报状态描述、凭证序号信息</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbqkxxByDjxh</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		update SB_SBQK t set t.sbzt_dm=?, sbztms=?, pzxh=?, xgsj=sysdate , cfcs = cfcs+1 where t.djxh=?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+     <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkxxByQqwjm</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据请求文件名，获取申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>querySbqkxxByQqwjm</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		select sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, 
+            to_char(skssqq, 'yyyy-mm-dd') skssqq, to_char(skssqz, 'yyyy-mm-dd') skssqz, 
+            sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, 
+            to_char(sbrq, 'yyyy-mm-dd') sbrq, to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj, 
+            sblx_dm, qqjymxxh, zdkkbz, 
+            to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj, 
+            pzxh, dlrsbh, qqwjm, sbny, scpzxh, qdid ,cfbz,cfcs
+            from sb_sbqk 
+        where qqwjm = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkxxListByQqwjm</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据请求文件名，获取申报情况信息列表</DESCRIPTION>
+        <SQL>
+            <NAME>querySbqkxxByQqwjm</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		select sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, 
+            to_char(skssqq, 'yyyy-mm-dd') skssqq, to_char(skssqz, 'yyyy-mm-dd') skssqz, 
+            sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, 
+            to_char(sbrq, 'yyyy-mm-dd') sbrq, to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj, 
+            sblx_dm, qqjymxxh, zdkkbz, 
+            to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj, 
+            pzxh, dlrsbh, qqwjm, sbny, scpzxh, qdid ,cfbz,cfcs
+            from sb_sbqk 
+        where qqwjm = ?
+        order by xgsj desc
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbztAndWbjylshBySbxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报序号，更新申报状态和外部交易流水号</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbztAndWbjylshBySbxh</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		update SB_SBQK t set t.sbzt_dm=?, t.sbztms=?, t.wbjylsh=?,xgsj=sysdate , cfcs = cfcs+1 where t.sbxh = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>  
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkxxByWbjylsh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据外部交易流水号获取申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>querySbqkxxByWbjylsh</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         	select sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, 
+            to_char(skssqq, 'yyyy-mm-dd') skssqq, to_char(skssqz, 'yyyy-mm-dd') skssqz, 
+            sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, 
+            to_char(sbrq, 'yyyy-mm-dd') sbrq, to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj, 
+            sblx_dm, qqjymxxh, zdkkbz, 
+            to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj, 
+            pzxh, dlrsbh, qqwjm, sbny, scpzxh, qdid ,cfbz,cfcs
+            from sb_sbqk 
+        	where wbjylsh = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkxxBySbxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报序号获取申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>querySbqkxxBySbxh</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         	select sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, 
+            to_char(skssqq, 'yyyy-mm-dd') skssqq, to_char(skssqz, 'yyyy-mm-dd') skssqz, 
+            sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, 
+            to_char(sbrq, 'yyyy-mm-dd') sbrq, to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj, 
+            sblx_dm, qqjymxxh, zdkkbz, 
+            to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj, 
+            pzxh, dlrsbh, qqwjm, sbny, scpzxh, qdid ,cfbz,cfcs
+            from sb_sbqk 
+        	where sbxh = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+     <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbztBySbxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报序号更新申报状态</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbztBySbxh</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		update SB_SBQK t set t.sbzt_dm=?, t.sbztms=?,xgsj=sysdate , cfcs = cfcs+1 where t.sbxh = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>  
+     <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbztAndSbseBySbxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报序号更新申报状态和申报金额</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbztAndSbseBySbxh</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		update SB_SBQK t set t.sbzt_dm=?, t.sbztms=?, t.sbse=?,xgsj=sysdate , cfcs = cfcs+1 where t.sbxh = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>  
+     <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateDefaultCfbzBeforeMinutesEntry</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报状态代码, 更新minutes分钟之前录入的重发标识为'00'的申报数据的重发标识额</DESCRIPTION>
+        <SQL>
+            <NAME>updateCfbz</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+		    	update SB_SBQK t1
+					 set t1.cfbz = ?
+				 where t1.sbxh in
+							 (select t2.sbxh
+									from (select t.sbxh
+													from sb_sbqk t
+												 where t.sbzt_dm = ?
+													 and t.cfbz = '00'
+													 and t.lrsj &lt; sysdate - numtodsinterval(?, 'minute')
+												 order by t.lrsj asc) t2
+								 where rownum &lt; ?)
+				 and t1.sbzt_dm = ?
+					 and t1.cfbz = '00'
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>  
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkBySbztAndCfbz</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报状态和重发标识查询申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>querySbqkBySbztAndCfbz</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         	select sbxh,
+					 djxh,
+					 nsrsbh,
+					 zsxm_dm,
+					 sbzl_dm,
+					 sbse,
+					 to_char(skssqq, 'yyyy-mm-dd') skssqq,
+					 to_char(skssqz, 'yyyy-mm-dd') skssqz,
+					 sbzt_dm,
+					 sbztms,
+					 qqjylsh,
+					 nbjylsh,
+					 wbjylsh,
+					 to_char(sbrq, 'yyyy-mm-dd') sbrq,
+					 to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj,
+					 sblx_dm,
+					 qqjymxxh,
+					 zdkkbz,
+					 to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj,
+					 pzxh,
+					 dlrsbh,
+					 qqwjm,
+					 sbny,
+					 scpzxh,
+					 qdid,
+					 cfbz,
+					 cfcs
+			from sb_sbqk t
+		 where t.sbzt_dm = ?
+			 and t.cfbz = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    
+         <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbqkxxByQqjylsh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>update</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据请求流水号更新申报状态</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbqkxxByQqjylsh</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		update SB_SBQK t set t.sbzt_dm=?, t.sbztms=?,xgsj=sysdate , cfcs = cfcs+1 where t.qqjylsh = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>  
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkBySbztAndXgsjOffset</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据申报状态申报年月查询一段时间以前的申报数据</DESCRIPTION>
+        <SQL>
+            <NAME>querySbqkBySbztAndXgsrOffset</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		select sbxh,
+						 djxh,
+						 nsrsbh,
+						 zsxm_dm,
+						 sbzl_dm,
+						 sbse,
+						 skssqq,
+						 skssqz,
+						 sbzt_dm,
+						 sbztms,
+						 qqjylsh,
+						 nbjylsh,
+						 wbjylsh,
+						 sbrq,
+						 lrsj,
+						 sblx_dm,
+						 qqjymxxh,
+						 zdkkbz,
+						 xgsj,
+						 pzxh,
+						 dlrsbh,
+						 qqwjm,
+						 sbny,
+						 scpzxh,
+						 qdid,
+						 cfbz,
+						 cfcs
+				from sb_sbqk t
+			 where t.sbzt_dm = ?
+				 and t.xgsj &lt;= sysdate - numtodsinterval(?, 'minute')
+				 and t.sbny = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkByDjxhAndSkssqz</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据登记序号和税款所属期止查询申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>querySbqkByDjxhAndSkssqz</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select sbxh,
+                         djxh,
+                         nsrsbh,
+                         zsxm_dm,
+                         sbzl_dm,
+                         sbse,
+                         skssqq,
+                         skssqz,
+                         sbzt_dm,
+                         sbztms,
+                         qqjylsh,
+                         nbjylsh,
+                         wbjylsh,
+                         sbrq,
+                         lrsj,
+                         sblx_dm,
+                         qqjymxxh,
+                         zdkkbz,
+                         xgsj,
+                         pzxh,
+                         dlrsbh,
+                         qqwjm,
+                         sbny,
+                         scpzxh,
+                         qdid,
+                         cfbz,
+                         cfcs
+                from sb_sbqk t
+             where t.djxh = ?
+                and t.skssqz = to_date(?,'yyyy-MM-DD')
+             order by t.sbzl_dm asc ,t.lrsj desc
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbqkxxBySbzlSSSQAndDjxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据登记序号，申报种类代码，税款所属期，更新申报状态代码、申报状态描述</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbqkxxBySbzlSSSQAndDjxh</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		update SB_SBQK t set t.sbzt_dm=?, sbztms=?, xgsj=sysdate,cfcs = cfcs+1 where 
+         		    t.djxh = ?
+         		    and t.skssqq = to_date(?,'yyyy-MM-dd')
+         		    and t.skssqz = to_date(?,'yyyy-MM-dd')
+         		    and t.sbzl_dm = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.updateSbztPzxhSeBySbxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>更新sb_sbqk表的申报状态、申报描述、凭证序号、上次申报凭证序号</DESCRIPTION>
+        <SQL>
+            <NAME>updateSbztPzxhSeBySbxh</NAME>
+            <TYPE>update</TYPE>
+            <CLAUSE usePreparedStatement="true">
+         		UPDATE SB_SBQK T
+					 SET T.SBZT_DM = ?,
+							 T.SBZTMS  = ?,
+							 T.PZXH    = ?,
+							 T.SCPZXH  = ?,
+							 T.SBSE    = ?,
+							 T.XGSJ    = SYSDATE,
+							 T.CFCS    = CFCS + 1
+				 WHERE T.SBXH = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbSbqkxxDaoImpl.querySbqkxxByPzxh</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据凭证序号获取申报情况信息</DESCRIPTION>
+        <SQL>
+            <NAME>getSuccessSbqkxxBypxzh</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				select sbxh, djxh, nsrsbh, zsxm_dm, sbzl_dm, sbse, 
+		        to_char(skssqq, 'yyyy-mm-dd') skssqq, to_char(skssqz, 'yyyy-mm-dd') skssqz, 
+		        sbzt_dm, sbztms, qqjylsh, nbjylsh, wbjylsh, 
+		        to_char(sbrq, 'yyyy-mm-dd') sbrq, to_char(lrsj, 'yyyy-mm-dd hh24:mi:ss') lrsj, 
+		        sblx_dm, qqjymxxh, zdkkbz, 
+		        to_char(xgsj, 'yyyy-mm-dd hh24:mi:ss') xgsj, 
+		        pzxh, dlrsbh, qqwjm, sbny, scpzxh, qdid ,cfbz,cfcs
+		        from sb_sbqk
+				where pzxh = ?
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+</ROOT>

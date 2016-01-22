@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+	<TASK>
+	     <NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.Gt3FqdqdzcpZspmDaoImpl.queryZspmxx</NAME>
+	     <DATABASE_NAME>jssqdb</DATABASE_NAME>
+	     <TYPE>select</TYPE>
+	     <BATCH>false</BATCH>
+	     <TRANSACTION>false</TRANSACTION>
+	     <EXECUTOR></EXECUTOR>
+	     <DESCRIPTION>查询金税三期数据库中的废弃电器电子产品处理基金-征收品目</DESCRIPTION>
+	     <SQL>
+	         <NAME>queryZspmxx</NAME>
+	         <TYPE>query</TYPE>
+	         <CLAUSE usePreparedStatement="true">
+	         select ZSPM_DM,zspmmc from hx_zgxt.dm_gy_zspm  where ZSPM_DM in (SELECT ZSPM_DM FROM HX_ZGXT.RD_SFZRDXXB
+                where djxh=?
+                    and RDYXQQ &lt;=to_date(?,'yyyy-MM-DD')
+                    and RDYXQZ>=to_date(?,'yyyy-MM-DD')
+                    and yxbz='Y'
+                    and zsxm_dm = '30175')
+	         </CLAUSE>
+	         <CLAUSE>
+	         </CLAUSE>
+	         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+	         <DESCRIPTION></DESCRIPTION>
+	     </SQL>
+	 </TASK>
+</ROOT>

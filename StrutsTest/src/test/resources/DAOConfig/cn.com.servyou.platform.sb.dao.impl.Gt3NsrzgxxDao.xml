@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<ROOT>
+	
+	<TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.Gt3NsrzgxxDaoImpl.getNsrzgxx</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询征管纳税人资格信息</DESCRIPTION>
+        <SQL>
+            <NAME>getNsrzgxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				select DJXH,
+				LCSLID,
+				to_char(LRRQ,'yyyy-mm-dd HH24:MI:SS') as LRRQ,
+				LRR_DM,
+				NSRZGLX_DM,
+				QXBZ,
+				RDPZUUID,
+				SJGSDQ,
+				to_char(SJZZRQ,'yyyy-mm-dd HH24:MI:SS') as SJZZRQ,
+				to_char(XGRQ,'yyyy-mm-dd HH24:MI:SS') as XGRQ,
+				XGR_DM,
+				to_char(YXQQ,'yyyy-mm-dd') as YXQQ ,
+				to_char(YXQZ,'yyyy-mm-dd') as YXQZ
+				from RD_NSRZGXX_JGB
+				where DJXH = ?
+				and YXQQ&lt;=to_date(?,'yyyy-MM-DD')
+				AND SJZZRQ >= to_date(?,'yyyy-MM-DD')
+				and ZFBZ_1 = 'N'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+   <!-- 已经不需要该功能了。
+   <TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.Gt3NsrzgxxDaoImpl.getNsrzgxxPl</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>调用中间库的存储过程，从三期主数据库中提取纳税人资格信息到中间库纳税人资格信息表</DESCRIPTION>
+		<SQL>
+			<NAME>getNsrzgxxPl</NAME>
+			<TYPE>procedure</TYPE>
+			<CLAUSE>
+				{call PROC_SYNC_RDNSRZGXX(?,?,?,?)}
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST>[IN.VARCHAR,IN.VARCHAR,IN.VARCHAR,OUT.VARCHAR]</PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	 -->
+	 <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.Gt3NsrzgxxDaoImpl.getNsrzglxDm</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的纳税人资格信息</DESCRIPTION>
+        <SQL>
+            <NAME>getNsrzgxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				select t.nsrzglx_dm
+					from HX_ZGXT.rd_nsrzgxx_jgb t
+				where t.djxh = ?
+				and t.yxqq &lt;= to_date(?, 'yyyy-MM-DD')
+				and t.sjzzrq >= to_date(?, 'yyyy-MM-DD')
+				and ZFBZ_1 = 'N'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+</ROOT>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+ 	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjfx.impl.SjfxcjDaoImpl.saveSjcj</NAME>
+		<DATABASE_NAME>sjfxcjdb</DATABASE_NAME>
+		<TYPE>update</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>申报数据保存(数据采集中间表)</DESCRIPTION>
+		<SQL>
+			<NAME>saveSjcj</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				<UPDATE_CLAUSE>insert into sjcj_zjb (xh, nsrdzdah, cjbdm, lrrq, cjnr, clzt, errormsg) values (seq_sjcj_zjb_xh.NEXTVAL, ?, ?, sysdate,?,0,?)</UPDATE_CLAUSE>
+             	<SELECT_CLAUSE>select t.cjnr from sjcj_zjb t where t.xh = (select max(xh) from SJCJ_ZJB) for update</SELECT_CLAUSE>
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST>[String,String, CLOB,String]</PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjfx.impl.SjfxcjDaoImpl.getCjbdm</NAME>
+		<DATABASE_NAME>sjfxcjdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>根据采集年度、纳税人电子档案号获取采集表代码</DESCRIPTION>
+		<SQL>
+			<NAME>selectCjbdm</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE usePreparedStatement="true">
+    			select t.cjbdm bbidDm,t.cjbmc
+  					from sjcj_nsr_dncjqd t
+ 				where t.cjnd = ?
+   				and t.nsrdzdah = ?
+         	</CLAUSE>
+         	<PARAMETER_TYPE_LIST>[String,String]</PARAMETER_TYPE_LIST>
+         	<DESCRIPTION></DESCRIPTION> 
+		</SQL>
+	</TASK>
+</ROOT>

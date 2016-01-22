@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<ROOT>
+  <TASK>
+      <NAME>cn.com.servyou.platform.sb.dao.impl.CsJjrDaoImpl.queryCsJjr</NAME>
+      <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+      <TYPE>select</TYPE>
+      <BATCH>false</BATCH>
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR>
+      <DESCRIPTION>查询节假日</DESCRIPTION>
+      <SQL>
+         <NAME>queryDm_bbidDAO</NAME>
+         <TYPE>query</TYPE>
+         <CLAUSE usePreparedStatement="true">
+             select T.UUID,
+			       T.SWJG_DM,
+			       T.YYYF,
+			       to_char(T.JJRQSRQ,'yyyymmdd'),
+			       to_char(T.JJRZZRQ,'yyyymmdd'),
+			       T.LRRQ,
+			       T.XGRQ,
+			       T.XYBZ,
+			       T.JJRQSRQ
+			  from cs_gy_jjr t
+			 WHERE T.SWJG_DM in
+			       (select dm.swjg_dm
+			          from dm_gy_swjg dm
+			         where dm.swjgbz = '0'
+			         start with dm.swjg_dm = ?
+			        connect by prior dm.sjswjg_dm = dm.swjg_dm)
+			   AND T.YYYF = TO_CHAR(SYSDATE, 'YYYY-MM')
+			   AND T.XYBZ = 'Y'
+			   order by t.swjg_dm desc
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION> 
+      </SQL>
+  </TASK>
+</ROOT>

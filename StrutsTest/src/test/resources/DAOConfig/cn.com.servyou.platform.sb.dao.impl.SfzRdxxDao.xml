@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<ROOT>
+
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.SfzRdxxDaoImpl.insertSfzrdxx</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>insert</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>插入税费种认定信息</DESCRIPTION>
+		<SQL>
+			<NAME>insertSfzrdxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE repeat="true">
+				 INSERT INTO DJ_SFZRDXX
+               (rdpzuuid,djxh,zsxm_dm,zspm_dm,rdyxqq,rdyxqz,hy_dm,sbqx_dm,nsqx_dm,zslhdwse,zsfs_dm,yskm_dm,ysjc_dm,ysfpbl_dm,gk_dm,jkqx_dm,zsdlfs_dm,
+xybz,zgswskfj_dm,lrr_dm,lrrq,xgr_dm,xgrq,zfsbz,rdzsuuid,sjgsdq,lcslid,zszm_dm,zsl,pkbz)
+             VALUES
+               (?,?,?,?,to_date(?,'yyyy-mm-dd hh24:mi:ss'),to_date(?,'yyyy-mm-dd hh24:mi:ss'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,to_date(?,'yyyy-mm-dd hh24:mi:ss'),?,to_date(?,'yyyy-mm-dd hh24:mi:ss'),?,?,?,?,?,?,?)     
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>	
+	
+	<TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SfzRdxxDaoImpl.querySfzrdxx</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询中间库的税费种认定信息表</DESCRIPTION>
+        <SQL>
+            <NAME>querySfzrdxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select
+                    RDPZUUID ,
+                    DJXH ,
+                    ZSXM_DM ,
+                    ZSPM_DM ,
+                    to_char(RDYXQQ,'yyyy-mm-dd') RDYXQQ,
+                    to_char(RDYXQZ,'yyyy-mm-dd') RDYXQZ,
+                    HY_DM ,
+                    SBQX_DM ,
+                    NSQX_DM ,
+                    ZSLHDWSE ,
+                    ZSFS_DM ,
+                    YSKM_DM ,
+                    YSJC_DM ,
+                    YSFPBL_DM ,
+                    GK_DM ,
+                    JKQX_DM ,
+                    ZSDLFS_DM ,
+                    XYBZ ,
+                    ZGSWSKFJ_DM,
+                    LRR_DM ,
+                    to_char(LRRQ,'yyyy-mm-dd hh24:mi:ss') LRRQ,
+                    XGR_DM ,
+                    to_char(XGRQ,'yyyy-mm-dd hh24:mi:ss') XGRQ,
+                    ZFSBZ ,
+                    RDZSUUID ,
+                    SJGSDQ ,
+                    to_char(SJGSRQ,'yyyy-mm-dd hh24:mi:ss') SJGSRQ,
+                    LCSLID ,
+                    ZSZM_DM ,
+                    ZSL ,
+                    PKBZ
+                from DJ_SFZRDXX
+                where
+                    djxh=?
+                    and RDYXQQ&lt;=to_date(?,'yyyy-MM-DD')
+                    and RDYXQZ>=to_date(?,'yyyy-MM-DD')
+                    and instr((select t.param_value
+		            from XT_XTCS t where t.param_code = 'tq_zsxmdm'), ZSXM_DM) > 0
+
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SfzRdxxDaoImpl.querySfzrdxxByZsxmDm</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>根据征收项目种类代码查询中间库的税费种认定信息表</DESCRIPTION>
+        <SQL>
+            <NAME>querySfzrdxxByZsxmDm</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select
+                    RDPZUUID ,
+                    DJXH ,
+                    ZSXM_DM ,
+                    ZSPM_DM ,
+                    to_char(RDYXQQ,'yyyy-mm-dd hh24:mi:ss') RDYXQQ,
+                    to_char(RDYXQZ,'yyyy-mm-dd hh24:mi:ss') RDYXQZ,
+                    HY_DM ,
+                    SBQX_DM ,
+                    NSQX_DM ,
+                    ZSLHDWSE ,
+                    ZSFS_DM ,
+                    YSKM_DM ,
+                    YSJC_DM ,
+                    YSFPBL_DM ,
+                    GK_DM ,
+                    JKQX_DM ,
+                    ZSDLFS_DM ,
+                    XYBZ ,
+                    ZGSWSKFJ_DM,
+                    LRR_DM ,
+                    to_char(LRRQ,'yyyy-mm-dd hh24:mi:ss') LRRQ,
+                    XGR_DM ,
+                    to_char(XGRQ,'yyyy-mm-dd hh24:mi:ss') XGRQ,
+                    ZFSBZ ,
+                    RDZSUUID ,
+                    SJGSDQ ,
+                    to_char(SJGSRQ,'yyyy-mm-dd hh24:mi:ss') SJGSRQ,
+                    LCSLID ,
+                    ZSZM_DM ,
+                    ZSL ,
+                    PKBZ
+                from DJ_SFZRDXX
+                where
+                    djxh=?
+                    and RDYXQQ&lt;=to_date(?,'yyyy-MM-DD')
+                    and RDYXQZ>=to_date(?,'yyyy-MM-DD') and ZSXM_DM=?
+
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK> 
+    
+    <TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.impl.SfzRdxxDaoImpl.deleteSfzrdxx</NAME>
+		<DATABASE_NAME>tycpptdb</DATABASE_NAME>
+		<TYPE>update</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION>刪除税费种认定信息</DESCRIPTION>
+		<SQL>
+			<NAME>deleteSfzrdxx</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				 delete from DJ_SFZRDXX where DJXH=?
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>	
+	
+</ROOT>

@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+<TASK>
+      <NAME>qyGlYwWlInsert</NAME>
+      <DATABASE_NAME>ctais</DATABASE_NAME>
+      <TYPE>insert</TYPE>
+      <BATCH>true</BATCH>   
+      <TRANSACTION>true</TRANSACTION>
+      <EXECUTOR></EXECUTOR> 
+      <DESCRIPTION>企业年度关联业务往来报告表</DESCRIPTION>
+      <SQL>
+         <NAME>SbclDrQyndSdsBgbCtais11_ZB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE>
+     insert into WBJK_SB_NDSDS_GLQY(
+        PZXH          ,
+        NSRSBH        ,
+        SSSQ_Q        ,
+        SSSQ_Z        ,
+        NDZBPZZLDM    ,
+        NDZBPZXH      ,
+        QYLX          ,
+        ND            ,
+        FDDBR         ,
+        LXDH          ,
+        SBRQ          ,
+        SLRQ          ,
+        YXBZ          ,
+        NSR_SWJG_DM   ,
+        SWJG_DM       ,
+        LRR_DM        ,
+        LRRQ          ,
+        XGR_DM        ,
+        XGRQ          ,
+        CSBZ_S        ,
+        CSBZ_X        
+        )values(
+         ? , 
+         ? , 
+         to_date(?,'YYYY-MM-DD'),
+         to_date(?,'YYYY-MM-DD'),
+         ? , 
+         ? , 
+         ? , 
+         ? , 
+         ? , 
+         ? , 
+         sysdate, 
+         sysdate,
+         ? , 
+         ? , 
+         ? , 
+         ? , 
+         sysdate,
+         ? , 
+         sysdate,
+         ? , 
+         ? )
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION>企业所得税年度关联企业申报表</DESCRIPTION>         
+      </SQL>
+
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLQY_FB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE>
+     insert into WBJK_SB_NDSDS_GLQY_FB(
+        XH          ,
+        PZXH        ,
+        FBLX        ,
+        NSRSBH      ,
+        SSSQ_Q      ,
+        SSSQ_Z      ,
+        SBRQ        ,
+        TBRQ        ,
+        NDZBPZZLDM  ,
+        NDZBPZXH    ,
+        YXBZ        ,
+        NSR_SWJG_DM ,
+        SWJG_DM     ,
+        LRR_DM      ,
+        LRRQ        ,
+        XGR_DM      ,
+        XGRQ        ,
+        CSBZ_S      ,
+        CSBZ_X      
+        )values(
+         ?,
+         ?,
+         ?,
+         ?,
+         to_date(?,'YYYY-MM-DD'),
+         to_date(?,'YYYY-MM-DD'),
+         sysdate,
+         sysdate,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         sysdate,
+         ?,
+         sysdate,
+         ?,
+         ?)
+         </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION>企业所得税年度关联企业申报附表公共表</DESCRIPTION>         
+      </SQL>
+
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_GLGXB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+     insert into WBJK_SB_NDSDS_GLYW_GLGXB(
+        PZXH      ,
+        FBXH      ,
+        GLFMC     ,
+        NSRSBH    ,
+        GJ_DM     ,
+        DZ        ,
+        FDDBR     ,
+        GLGXLX    ,
+        YXBZ      
+        )values(
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?)
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB1关联业务_关联关系表（表一）</DESCRIPTION>         
+      </SQL>
+
+	  <SQL>
+         <NAME>SB_NDSDS_GLYW_GLJYHZB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+        INSERT INTO WBJK_SB_NDSDS_GLYW_GLJYHZB
+          (PZXH,
+           FBXH,
+           SF_AYQZB_TQZL,
+           SF_MCZB_TQZL,
+           SF_QDCBFTXY,
+           XMXH,
+           JYZJE,
+           GLJY_JE,
+           GLJY_BL,
+           JWGLJY_JE,
+           JWGLJY_BL5,
+           JWGLJY_BL6,
+           JNGLJY_JE,
+           JNGLJY_BL8,
+           JNGLJY_BL9,
+           YXBZ)
+        VALUES
+          (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, String, String, String, Double, Double, Double, Double, Double, Double, Double, Double, Double, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB2关联业务_关联交易汇总表</DESCRIPTION>         
+      </SQL>
+
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_GXB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE>
+        insert into WBJK_SB_NDSDS_GLYW_GXB(
+          PZXH          ,
+          FBXH          ,
+          GRZE          ,
+          JKGR          ,
+          JKGR_FGLJK    ,
+          JKGR_GLJK     ,
+          GNGR          ,
+          GNGR_FGLGR    ,
+          GNGR_GLGR     ,
+          XSZE          ,
+          CKXS          ,
+          CKXS_FGLCK    ,
+          CKXS_GLCK     ,
+          GNXS          ,
+          GNXS_FGLXS    ,
+          GNXS_GLXS     ,
+          LLJG_GLJE     ,
+          LLJG_FGLJE    ,
+          QTMYFS_GLJE   ,
+          QTMYFS_FGLJE  ,
+          YXBZ          
+        )values(
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?    )
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB3关联业务_购销表</DESCRIPTION>         
+      </SQL>	
+      
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_GXB_ZB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+       INSERT INTO WBJK_SB_NDSDS_GLYW_GXB_JWGLBXX
+         (XH,
+          PZXH,
+          FBXH,
+          JWJYDXLX,
+          GWGLLX,
+          JWGLFMC,
+          GJ_DM,
+          JYJE,
+          DJFF_DM,
+          BZ,
+          YXBZ)
+       VALUES
+         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, String, String, String, String, Double, String, String, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB3关联业务_购销表_境外关联信息表</DESCRIPTION>         
+      </SQL>      
+      
+      
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_LWB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE>
+        insert into WBJK_SB_NDSDS_GLYW_LWB(
+          PZXH        ,
+          FBXH        ,
+          LWSR        ,
+          JWLWSR      ,
+          JWLWSR_FGL  ,
+          JWLWSR_GL   ,
+          JNLWSR      ,
+          JNLWSR_FGL  ,
+          JNLWSR_GL   ,
+          LWZC        ,
+          JWLWZC      ,
+          JWLWZC_FGL  ,
+          JWLWZC_GL   ,
+          JNLWZC      ,
+          JNLWZC_FGL  ,
+          JNLWZC_GL   ,
+          YXBZ        
+        )VALUES(
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?,
+          ?   )
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB4关联业务_劳务表</DESCRIPTION>         
+      </SQL>	
+      
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_LWGXB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+           insert into WBJK_SB_NDSDS_GLYW_GXB_JWGLBXX(
+                   XH         ,
+                   PZXH       ,
+                   FBXH       ,
+                   JWJYDXLX   ,
+                   GWGLLX     ,
+                   JWGLFMC    ,
+                   GJ_DM      ,
+                   JYJE       ,
+                   DJFF_DM    ,
+                   BZ         ,
+                   YXBZ       
+                   )values(
+                     ?,
+                     ?,
+                     ?,
+                     ?,
+                     ?,
+                     ?,
+                     ?,
+                     ?,
+                     ?,
+                     ?,
+                     ?
+                   )
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, String, String, String, String, Double, String, String, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB4关联业务_劳务表_境外关联信息表</DESCRIPTION>         
+      </SQL>      
+      
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_WXZCB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+        insert into WBJK_SB_NDSDS_GLYW_WXZCB(
+            PZXH          ,
+            FBXH          ,
+            XMXH          ,
+            QZ_SM         ,
+            SRZJYJE       ,
+            JWSR_GLJYJE   ,
+            JWSR_FGLJYJE  ,
+            JNSR_GLJYJE   ,
+            JNSR_FGLJYJE  ,
+            CRZJYJE       ,
+            JWCR_GLJYJE   ,
+            JWCR_FGLJYJE  ,
+            JNCR_GLJYJE   ,
+            JNCR_FGLJYJE  ,
+            YXBZ         
+        )values(
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?  )
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, String, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB5关联业务_无形资产表</DESCRIPTION>         
+      </SQL>	
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_GDZCB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+        insert into WBJK_SB_NDSDS_GLYW_GDZCB(
+            PZXH         ,
+            FBXH         ,
+            XMXH         ,
+            SRZJYJE      ,
+            JWSR_GLJYJE  ,
+            JWSR_FGLJYJE ,
+            JNSR_GLJYJE  ,
+            JNSR_FGLJYJE ,
+            CRZJYJE      ,
+            JWCR_GLJYJE  ,
+            JWCR_FGLJYJE ,
+            JNCR_GLJYJE  ,
+            JNCR_FGLJYJE ,
+            YXBZ         
+        )values(
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?,
+               ?   )
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB6关联业务_固定资产表</DESCRIPTION>         
+      </SQL>	
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_RTZJB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+          insert into WBJK_SB_NDSDS_GLYW_RTZJB(
+            PZXH    ,
+            FBXH    ,
+            XMXH    ,
+            GNFMC   ,
+            GJ_DM   ,
+            BZ_DM   ,
+            RRJE    ,
+            RCJE    ,
+            LV      ,
+            RZQSJ   ,
+            RZZSJ   ,
+            YJLXZC  ,
+            YJLXSR  ,
+            DBFMC   ,
+            DBF     ,
+            DBFV    ,
+            BL      ,
+            YXBZ 
+          )values(
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           to_date(?,'YYYY-MM-DD'),
+           to_date(?,'YYYY-MM-DD'),
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ? )
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, String, String, String, Double, Double, Double, String, String, Double, Double, String, Double, Double, Double, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB7关联业务_融通资金表</DESCRIPTION>         
+      </SQL>	
+	  <SQL>
+         <NAME>SB_NDSDS_GLYW_DWTZB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+          INSERT INTO WBJK_SB_NDSDS_GLYW_DWTZB
+            (PZXH,
+             FBXH,
+             QYMC,
+             NSRSBH_BTZ,
+             CZDZ,
+             FDDBR,
+             ZYJRDZ,
+             CLSJ,
+             FDDBRJZDZ,
+             JZBWHB,
+             ZYYWFW,
+             DRMBHL,
+             NSNDQ,
+             NSNDZ,
+             ZDFDSLGJ,
+             QYNDLR,
+             YNSSDE,
+             SJJNSDS,
+             SHLVE,
+             SJSFBL,
+             FDSDSL,
+             SRZE,
+             CB,
+             MLR,
+             GXHLSR,
+             LXSR,
+             ZJTXQSYFSR,
+             CCZRSY,
+             QTSR,
+             KJBCZC,
+             ZJTXQSYZZC,
+             LXZC,
+             ZJ,
+             SJ,
+             QTKC,
+             NDLRZE,
+             XJ,
+             YSCK,
+             CH,
+             QTLDZC,
+             XGDHQTGLFDK,
+             DFSJGTZ,
+             QTTZ,
+             JZWQTKZJCC,
+             TD,
+             WXZC,
+             QTCC,
+             ZZC,
+             YFZK,
+             QTLDFZ,
+             GDHQTGLFDK,
+             QTFZ,
+             GB,
+             WFPLR,
+             ZFZ,
+             BNDYFPXE,
+             BNDSJFPXE,
+             BL,
+             YXBZ)
+          VALUES
+            (?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             to_date(?,'YYYY-MM-DD'),
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?,
+             ?)
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, String, String, String, String, String, String, String, String, Double, String, String, String, String, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB8关联业务_对外投资情况表</DESCRIPTION>         
+      </SQL>   
+	  <SQL>
+         <NAME>SB_NDSDS_GLYW_DWTZB_QYGFXX_ZB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+        INSERT INTO WBJK_SB_GLYW_DWTZB_QYGFXX_ZB(
+          XH      ,
+          PZXH    ,
+          FBXH    ,
+          ZGFL    ,
+          ZGFQSJ  ,
+          ZGFZSJ  ,
+          GFZL_DM ,
+          CYGFQSJ ,
+          CYGFZSJ ,
+          GFSL    ,
+          CGBL    
+        ) VALUES(?,?,?,?,to_date(?,'YYYY-MM-DD'),to_date(?,'YYYY-MM-DD'),?,to_date(?,'YYYY-MM-DD'),to_date(?,'YYYY-MM-DD'),?,?)
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, String, String, String, String, String, String, Double, Double]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB8关联业务_对外投资情况_企业股份信息表</DESCRIPTION>         
+      </SQL>    	
+	  <SQL>
+         <NAME>SB_NDSDS_GLYW_DWTZB_QBGDXX_ZB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+        INSERT INTO WBJK_SB_GLYW_DWTZB_QBGDXX_ZB
+          (XH, PZXH, FBXH, GDMC, GJ_DM, NSRSBH_BTZ, GFZL_DM, QSJ, ZSJ, ZQBGFBL)
+        VALUES
+          (?, ?, ?, ?, ?, ?, ?, to_date(?,'YYYY-MM-DD'), to_date(?,'YYYY-MM-DD'), ?)
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB8关联业务_对外投资情况_被投资外国企业全部股东信息表</DESCRIPTION>         
+      </SQL>    	  
+	  <SQL>
+         <NAME>WBJK_SB_NDSDS_GLYW_DWZFKXQKB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+        insert into WBJK_SB_NDSDS_GLYW_DWZFKXQKB(
+          PZXH           ,
+          FBXH           ,
+          XMXH           ,
+          BNDXJWZFKXJE   ,
+          XJWGLQYZFKXJE  ,
+          YKJQYSDSJE     ,
+          SFXSSSXDYH     ,
+          YXBZ           
+        )values(
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?,
+         ?) 
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST>[String, String, String, Double, Double, Double, String, String]</PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB9关联业务_对外支付款项情况表</DESCRIPTION>         
+      </SQL>     
+	  <!--
+	  	  <SQL>
+         <NAME>SB_NDSDS_GLYW_DWZFKXQKB_ZB</NAME>
+         <TYPE>update</TYPE> 
+      	 <CLAUSE repeat="true">
+      INSERT INTO SB_NDSDS_GLYW_DWZFKXQKB_ZB
+        (PZXH,
+         FBXH,
+         MC,
+         BNDXJWZFKXJE,
+         XJWGLQYZFKXJE,
+         YKJQYSDSJE,
+         SFXSSSXDYH,
+         YXBZ)
+      VALUES
+        (?, ?, ?, ?, ?, ?, ?, ?)
+      	 </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION>FB9关联业务_对外支付款项情况表_子表(该表暂时不需要入)</DESCRIPTION>         
+      </SQL>    
+	  -->
+	  <SQL>
+         <NAME>WBJK_SB_SBXX_COMMIT</NAME>
+         <TYPE>update</TYPE> 
+	     <CLAUSE>UPDATE WBJK_SB_SBXX SET CSCS=1 WHERE PZXH=?</CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION>CTAIS提供的UPDATE TRIGGER向正式申报表插入数据</DESCRIPTION>         
+      </SQL>	
+  </TASK>
+  
+  <TASK>
+      <NAME>query_ndzbpzxh</NAME>
+      <DATABASE_NAME>ctais</DATABASE_NAME>
+      <TYPE>select</TYPE>
+      <BATCH>false</BATCH>   
+      <TRANSACTION>false</TRANSACTION>
+      <EXECUTOR></EXECUTOR> 
+      <DESCRIPTION>企业年度关联业务往来报告表对应的A类年报凭证序号</DESCRIPTION>
+      <SQL>
+         <NAME>query_ndzbpzxh</NAME>
+         <TYPE>query</TYPE> 
+	 <CLAUSE>
+		select pzxh as PZXH from sb_ndsds_2014 where
+		SSSQ_Q=to_date(?,'yyyy-mm-dd') and
+		SSSQ_Z=to_date(?,'yyyy-mm-dd') and
+		NSRSBH=?
+		UNION ALL
+		select pzxh as PZXH from sb_ndsds_2008_hdzs where
+		SSSQ_Q=to_date(?,'yyyy-mm-dd') and
+		SSSQ_Z=to_date(?,'yyyy-mm-dd') and
+		NSRSBH=?
+		UNION ALL
+		select pzxh as PZXH from sb_ndsds_fzjg where
+		SSSQ_Q=to_date(?,'yyyy-mm-dd') and
+		SSSQ_Z=to_date(?,'yyyy-mm-dd') and
+		NSRSBH=?
+	 </CLAUSE>
+         <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+         <DESCRIPTION></DESCRIPTION>         
+      </SQL>	
+   </TASK>
+</ROOT>

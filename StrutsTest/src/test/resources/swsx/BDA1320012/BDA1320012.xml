@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Swwssdhz xmlns:ns2="http://www.chinatax.gov.cn/dataspec/">
+	<ns2:sdhzxxForm>
+		<ns2:hzbh>14452240500201500051</ns2:hzbh>
+		<ns2:wszg>隆江国税送证〔2015〕8号</ns2:wszg>
+		<ns2:nsrsbh>44052871013130100000</ns2:nsrsbh>
+		<ns2:nsrmc>林俊涛</ns2:nsrmc>
+		<ns2:djxh>10114452000129899430</ns2:djxh>
+		<ns2:sdhzuuid>2773E53455323FF932A324DB9E21D58F</ns2:sdhzuuid>
+		<ns2:jcajxxuuid></ns2:jcajxxuuid>
+		<ns2:hzzzrq>2015-01-06 11:01:06</ns2:hzzzrq>
+	</ns2:sdhzxxForm>
+	<ns2:sdwsGrid>
+		<ns2:sdwsGridlb>
+			<ns2:sdxxuuid>96A7E735B6DFD56759ECF9E6174418AF</ns2:sdxxuuid>
+			<ns2:sdwsuuid>0A686A40812D401EFD3204B152439E7D</ns2:sdwsuuid>
+			<ns2:dzbzdszlDm>BDA1220074</ns2:dzbzdszlDm>
+			<ns2:dzbzdszlmc>《责令限期改正通知书》</ns2:dzbzdszlmc>
+		</ns2:sdwsGridlb>
+	</ns2:sdwsGrid>
+</Swwssdhz>

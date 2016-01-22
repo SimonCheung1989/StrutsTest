@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ZsHddeTzsbdxxVO xmlns:ns2="http://www.chinatax.gov.cn/dataspec/">
+	<ns2:wsdyForm>
+		<ns2:nsrsbh>44092219701018518600</ns2:nsrsbh>
+		<ns2:nsrmc>高州市大井镇三生百货店</ns2:nsrmc>
+		<ns2:swjgmc>广东省高州市国家税务局大井税务分局</ns2:swjgmc>
+		<ns2:zse>903.0</ns2:zse>
+		<ns2:sehj>玖佰零叁元整</ns2:sehj>
+		<ns2:hdqnd>2015</ns2:hdqnd>
+		<ns2:hdqyf>01</ns2:hdqyf>
+		<ns2:hdqrq>01</ns2:hdqrq>
+		<ns2:hdznd>2015</ns2:hdznd>
+		<ns2:hdzyf>12</ns2:hdzyf>
+		<ns2:hdzrq>31</ns2:hdzrq>
+		<ns2:zznd>2015</ns2:zznd>
+		<ns2:zzyf>01</ns2:zzyf>
+		<ns2:zzrq>07</ns2:zzrq>
+		<ns2:wszg>大井国税 税通 〔2015〕 3 号</ns2:wszg>
+		<ns2:tzscs1>三十</ns2:tzscs1>
+		<ns2:tzscs2>60</ns2:tzscs2>
+	</ns2:wsdyForm>
+	<ns2:wsdyGrid>
+		<ns2:wsdyGridlb>
+			<ns2:zsxmmc>增值税</ns2:zsxmmc>
+			<ns2:ynsjye>30100.0</ns2:ynsjye>
+			<ns2:sl1>0.03</ns2:sl1>
+			<ns2:hdse>903.0</ns2:hdse>
+		</ns2:wsdyGridlb>
+	</ns2:wsdyGrid>
+</ZsHddeTzsbdxxVO>

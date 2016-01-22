@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+
+	<TASK>
+		<NAME>insertQysdsnbB</NAME>
+		<DATABASE_NAME>ctais</DATABASE_NAME>
+		<TYPE>insert</TYPE>
+		<BATCH>true</BATCH>
+		<TRANSACTION>true</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION></DESCRIPTION>
+		<SQL>
+			<NAME>insertQysdsnbB</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE>
+				insert into wbjk_sb_ndsds_2008_hdzs(pzxh, nsrsbh, sssq_q, sssq_z, sbrq, tbrq, bcsblx, srze, srze_yssdl, srze_ynssde, cbfyze, cbfy_yssdl, cbfy_ynssde, jfzcze, jfzcze_yssdl, jfzcze_sre, jfzcze_ynssde, sysl, ynsdse, jmsdse, yjsdse, ybtsdse, sjsy_yjse, zqjmxx_xxwl, zqjmxx_gxjs, zqjmxx_mzzz, zqjmxx_gdq, zqjmxx_qt, sjsy_jmed_hjbh, sjsy_jmed_jnjs, sjsy_jmed_ansc, sjsy_jmed_qt, yxbz, nsr_swjg_dm, swjg_dm, lrr_dm, lrrq, xgr_dm, xgrq, csbz_s, csbz_x, bzssr, mssr, yssre, xxwlqy_jmsdse, qycyrs, gzze, sshylx_dm, bbh) 
+					values (?, ?, to_date(?,'yyyymmdd'), to_date(?,'yyyymmdd'), sysdate, sysdate, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?, sysdate, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST>[String, String, String, String, String, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, String, String, String, String, String, String, String, Double, Double, Double, Double, Double, Double, String, String]</PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+		<SQL>
+			<NAME>WBJK_SB_SBXX_COMMIT</NAME>
+			<TYPE>update</TYPE>
+			<CLAUSE>UPDATE WBJK_SB_SBXX SET CSCS=1 WHERE PZXH=?</CLAUSE>
+			<PARAMETER_TYPE_LIST>[String]</PARAMETER_TYPE_LIST>
+			<DESCRIPTION>CTAIS提供的UPDATE TRIGGER向正式申报表插入数据</DESCRIPTION>
+		</SQL>
+	</TASK>
+</ROOT>

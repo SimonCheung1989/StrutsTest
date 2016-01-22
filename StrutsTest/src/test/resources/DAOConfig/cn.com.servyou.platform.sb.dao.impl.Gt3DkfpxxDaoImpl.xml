@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<ROOT>
+	 <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.Gt3DkfpxxDaoImpl.queryFpKjxx</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的纳税人所属时期内的开票信息</DESCRIPTION>
+        <SQL>
+            <NAME>getNsrkpxx</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				select t.kjswjg_dm,
+			       t.kpr_dm,
+			       to_char(t.kjrq, 'yyyy-mm-dd') kjrq,
+			       t.djxh,
+			       t.fpzl_dm,
+			       t.fp_dm,
+			       t.fphm,
+			       t.kpje,
+			       t.lzfpdm,
+			       t.lzfphm,
+			       t.tsnsrdjxh,
+			       t.fpkf_dm,
+			       t.bz,
+			       t.zfbz_1,
+			       t.zfr_dm,
+			       t.zfsqr,
+			       to_char(t.zfsqrq, 'yyyy-mm-dd') zfsqrq,
+			       t.zfyy,
+			       t.sjgsdq,
+			       t.lrr_dm,
+			       to_char(t.lrrq, 'yyyy-mm-dd') lrrq,
+			       t.xgr_dm,
+			       to_char(t.xgrq, 'yyyy-mm-dd') xgrq,
+			       to_char(t.zfrq_1, 'yyyy-mm-dd') zfrq_1
+			  from hx_zgxt.fp_dk_fpkjxx t
+			 where t.djxh = ?
+			   and t.kjrq &gt;= to_date(?, 'yyyy-MM-DD')
+			   and t.kjrq &lt; to_date(?, 'yyyy-MM-DD')
+			   and t.zfbz_1 = 'N'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.Gt3DkfpxxDaoImpl.queryFpKjjehj</NAME>
+        <DATABASE_NAME>jssqdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询金税三期数据库中的纳税人所属时期内的开票金额合计</DESCRIPTION>
+        <SQL>
+            <NAME>getNsrkpjehj</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+				select
+			       sum(t.kpje) kpjehj
+			  from hx_zgxt.fp_dk_fpkjxx t
+			 where t.djxh = ?
+			   and t.kjrq &gt;= to_date(?, 'yyyy-MM-DD')
+			   and t.kjrq &lt;= to_date(?, 'yyyy-MM-DD')
+			   and t.zfbz_1 = 'N'
+            </CLAUSE>
+            <CLAUSE>
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+</ROOT>

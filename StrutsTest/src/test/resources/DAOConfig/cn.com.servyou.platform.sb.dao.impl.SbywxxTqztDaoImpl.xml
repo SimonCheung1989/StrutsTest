@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbYwxxTqztDaoImpl.querySbYwxxTqzt</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询SB_YWXXTQZT</DESCRIPTION>
+        <SQL>
+            <NAME>select_sb_ywxxtqzt</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select DJXH, to_char(SSSQQ,'yyyy-mm-dd') as SSSQQ,  to_char(SSSQZ,'yyyy-mm-dd') as SSSQZ, SSLB_DM, SFTQ, SFTB, YXBZ,zgswskfj_dm
+                    from SB_YWXXTQZT
+                where djxh=?
+                    and SSSQQ=to_date(?,'yyyy-mm-dd')
+                    and SSSQZ=to_date(?,'yyyy-mm-dd')
+                    and yxbz='Y' AND sslb_dm=? and sftq='Y'
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+
+    <TASK>
+        <NAME>cn.com.servyou.platform.sb.dao.impl.SbYwxxTqztDaoImpl.querySbYwxxTqztBySwjgDm</NAME>
+        <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+        <TYPE>select</TYPE>
+        <BATCH>false</BATCH>
+        <TRANSACTION>false</TRANSACTION>
+        <EXECUTOR></EXECUTOR>
+        <DESCRIPTION>查询税务机关下的所有同步标志为N的数据 </DESCRIPTION>
+        <SQL>
+            <NAME>querySbYwxxTqztBySwjgDm</NAME>
+            <TYPE>query</TYPE>
+            <CLAUSE usePreparedStatement="true">
+                select DJXH, to_char(SSSQQ,'yyyy-mm-dd') as SSSQQ, to_char(SSSQZ,'yyyy-mm-dd') as SSSQZ, SSLB_DM, SFTQ, SFTB, YXBZ,zgswskfj_dm
+                    from SB_YWXXTQZT t
+                where zgswskfj_dm=? and SFTB='N' and t.sftq = 'Y'
+            </CLAUSE>
+            <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+            <DESCRIPTION></DESCRIPTION>
+        </SQL>
+    </TASK>
+    
+    <TASK>
+    <NAME>cn.com.servyou.platform.sb.dao.impl.SbYwxxTqztDaoImpl.insertSbYwxxTqzt</NAME>
+    <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+    <TYPE>select</TYPE>
+    <BATCH>false</BATCH>
+    <TRANSACTION>false</TRANSACTION>
+    <EXECUTOR></EXECUTOR>
+    <DESCRIPTION>插入sb_ywxxtqzt表</DESCRIPTION>
+    <SQL>
+        <NAME>insert_sb_ywxxtqzt</NAME>
+        <TYPE>update</TYPE>
+        <CLAUSE usePreparedStatement="true">
+            insert into SB_YWXXTQZT (DJXH, SSSQQ, SSSQZ, SSLB_DM, SFTQ, SFTB, YXBZ,ZGSWSKFJ_DM)
+            values (?, to_date(?,'yyyy-mm-dd'), to_date(?, 'yyyy-mm-dd'), ?, 'Y', 'N', 'Y',?)
+        </CLAUSE>
+        <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+        <DESCRIPTION></DESCRIPTION>
+    </SQL>
+</TASK>
+
+<TASK>
+    <NAME>cn.com.servyou.platform.sb.dao.impl.SbYwxxTqztDaoImpl.updateSbYwxxTBzt</NAME>
+    <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+    <TYPE>select</TYPE>
+    <BATCH>false</BATCH>
+    <TRANSACTION>false</TRANSACTION>
+    <EXECUTOR></EXECUTOR>
+    <DESCRIPTION>更新表sb_ywxxtqzt中的同步状态</DESCRIPTION>
+    <SQL>
+        <NAME>update_sb_ywxxtqzt_tbzt</NAME>
+        <TYPE>update</TYPE>
+        <CLAUSE usePreparedStatement="true">
+            update SB_YWXXTQZT set SFTB=?
+                where djxh=?
+                    and SSSQQ=to_date(?,'yyyy-mm-dd')
+                    and SSSQZ=to_date(?,'yyyy-mm-dd')
+                    and sslb_dm=?
+                    and yxbz='Y'
+        </CLAUSE>
+        <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+        <DESCRIPTION></DESCRIPTION>
+    </SQL>
+</TASK>
+
+<TASK>
+    <NAME>cn.com.servyou.platform.sb.dao.impl.SbYwxxTqztDaoImpl.deleteSbYwxxTqzt</NAME>
+    <DATABASE_NAME>tycpptdb</DATABASE_NAME>
+    <TYPE>select</TYPE>
+    <BATCH>false</BATCH>
+    <TRANSACTION>false</TRANSACTION>
+    <EXECUTOR></EXECUTOR>
+    <DESCRIPTION>删除sb_ywxxtqzt中的数据</DESCRIPTION>
+    <SQL>
+        <NAME>delete_sb_ywxxtqzt_tbzt</NAME>
+        <TYPE>update</TYPE>
+        <CLAUSE usePreparedStatement="true">
+            delete from  SB_YWXXTQZT
+            where djxh=?
+            and SSSQQ=to_date(?,'yyyy-mm-dd')
+            and SSSQZ=to_date(?,'yyyy-mm-dd')
+            and yxbz='Y' and sslb_dm=?
+        </CLAUSE>
+        <PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+        <DESCRIPTION></DESCRIPTION>
+    </SQL>
+</TASK>
+
+
+</ROOT>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>search.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <script type="text/javascript" src="../../jquery/jquery.js"></script>
+    <script type="text/javascript">
+		function search(){
+			var keywords = $("#keywords").val();
+			$.ajax({
+				url:"../../search/searchAction_search.do",
+				type:"post",
+				dataType:"json",
+				data:{
+					keywords:keywords
+				},
+				success:function(res){
+					var list = res.list;
+					if(list!=null && list!=""){
+						var htmlCode = "";
+						for(var i=0, len=list.length; i<len; i++){
+							var json = list[i];
+							htmlCode += "<tr class='data'>"
+									 + "<th><a href='#' onclick=\"toDetail(\'"+json.uuid+"\')\">"+json.ggbt+"</a></th>"
+									 + "</tr>"
+									 + "<tr class='data'>"
+									 + "<td><p class='data_p'>"+json.ggnr+"</p></td>"
+									 + "</tr>";
+						}
+						$(".data").remove();
+						$("#dataTr").before(htmlCode);
+						$("#dataTr").hide();
+					}else{
+						$(".data").remove();
+						$("#dataTr").show();
+					}
+				},
+				error:function(a, b, c){
+					alert(JSON.stringify(a));
+				}
+			});
+		}
+		
+		function toDetail(uuid){
+			window.open("detail.html?uuid="+uuid);
+		}
+    </script>
+    <style type="text/css">
+    	.min_div{
+    		width:90%;
+    		height:100%;
+    		padding: 50px;
+    	}
+    	
+    	.data_p {
+			width: 100%;
+			line-height: 20px;
+			max-height: 60px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+    	
+    	highlighting{
+    		color: red;
+    	}
+    </style>
+  </head>
+  
+  <body>
+  <div class='min_div'>
+  	<table style="width:100%;">
+  		<tr>
+  			<th style="width:30%">检索关键字</th>
+  			<td><input type="text" id="keywords" name="keywords" style="width:100%;"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="2" style="text-align: center">
+  				<input type="button" value="开始检索" onclick="search()">
+  			</td>
+  		</tr>
+  	</table>
+  	<hr>
+  	<table>
+  		<tr id="dataTr">
+  			<td>无数据！</td>
+  		</tr>
+  	</table>
+  </div>
+  </body>
+</html>

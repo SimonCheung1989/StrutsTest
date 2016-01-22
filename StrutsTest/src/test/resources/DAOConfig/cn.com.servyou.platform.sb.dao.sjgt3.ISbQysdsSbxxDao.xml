@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="GBK"?>
+<ROOT>
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.SbQysdsSbxxDaoImpl.queryQysdsSndYnssde</NAME>
+		<DATABASE_NAME>jssqdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION></DESCRIPTION>
+		<SQL>
+			<NAME>queryQysdsBNdYnssde</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE usePreparedStatement="true">
+			SELECT SUM(ynssde) ynssde
+  FROM (SELECT b.ynssde
+          FROM HX_ZGXT.SB_SDS_JMCZ_14ND_QYSDSNDNSSBZB B
+         WHERE B.PZXH =
+               (SELECT MAX(T.PZXH)
+                  FROM HX_ZGXT.SB_SBXX T
+                 WHERE T.DJXH = ?
+                   AND T.ZSXM_DM = '10104'
+                   AND T.SKSSQQ = to_date(?, 'yyyy-MM-DD')
+                   AND T.SKSSQZ = to_date(?, 'yyyy-MM-DD')
+                   AND t.yzpzzl_dm = 'BDA0610688'
+                   AND T.ZFBZ_1 = 'N')
+        UNION ALL 
+        SELECT C.ASRZE_YNSSDE + C.ACBFY_YNSSDE
+          FROM HX_ZGXT.SB_SDS_JMHD_YJND C
+         WHERE C.PZXH = (SELECT MAX(K.PZXH)
+                           FROM HX_ZGXT.SB_SBXX K
+                          WHERE K.DJXH = ?
+                            AND K.ZSXM_DM = '10104'
+                            AND K.SKSSQQ = to_date(?, 'yyyy-MM-DD')
+                            AND K.SKSSQZ = to_date(?, 'yyyy-MM-DD')
+                            AND K.ZFBZ_1 = 'N'))
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>
+	
+	<TASK>
+		<NAME>cn.com.servyou.platform.sb.dao.sjgt3.impl.SbQysdsSbxxDaoImpl.queryQysdsYjdYnssde</NAME>
+		<DATABASE_NAME>jssqdb</DATABASE_NAME>
+		<TYPE>select</TYPE>
+		<BATCH>false</BATCH>
+		<TRANSACTION>false</TRANSACTION>
+		<EXECUTOR></EXECUTOR>
+		<DESCRIPTION></DESCRIPTION>
+		<SQL>
+			<NAME>queryQysdsYjdYnssde</NAME>
+			<TYPE>query</TYPE>
+			<CLAUSE usePreparedStatement="true">
+				SELECT (T.SJLRE_LJ + T.SYNSNDYNSSDE_LJ) ynssde
+	  FROM HX_ZGXT.SB_SDS_JMCZ_YJD T
+	 WHERE T.PZXH =
+	       (SELECT MAX(K.PZXH)
+	          FROM HX_ZGXT.SB_SBXX K
+	         WHERE K.DJXH = ?
+	           AND K.ZSXM_DM = '10104'
+	           AND K.SKSSQZ = to_date(?, 'yyyy-MM-DD')
+	           AND K.YZPZZL_DM = 'BDA0610040')
+	UNION ALL SELECT b.asrze_ynssde + b.acbfy_ynssde ynssde
+	  FROM HX_ZGXT.SB_SDS_JMHD_YJND B
+	 WHERE B.PZXH =
+	       (SELECT MAX(K.PZXH)
+	          FROM HX_ZGXT.SB_SBXX K
+	         WHERE K.DJXH = ?
+	           AND K.ZSXM_DM = '10104'
+	           AND (K.SKSSQQ = to_date(?, 'yyyy-MM-DD') OR K.SKSSQQ = to_date(?, 'yyyy-MM-DD'))
+	           AND K.ZFBZ_1 = 'N')
+			</CLAUSE>
+			<PARAMETER_TYPE_LIST></PARAMETER_TYPE_LIST>
+			<DESCRIPTION></DESCRIPTION>
+		</SQL>
+	</TASK>	
+</ROOT>
