@@ -20,6 +20,11 @@
             <artifactId>spring-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.simon.soft</groupId>
+            <artifactId>simon-bussvc</artifactId>
+            <version>${simon.soft.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

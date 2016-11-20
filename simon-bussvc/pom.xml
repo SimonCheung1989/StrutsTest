@@ -13,5 +13,12 @@
     <artifactId>simon-bussvc</artifactId>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.simon.soft</groupId>
+            <artifactId>simon-dao</artifactId>
+            <version>${simon.soft.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
