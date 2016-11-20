@@ -10,16 +10,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>simon-web</artifactId>
-    <packaging>war</packaging>
+    <artifactId>simon-bussvc</artifactId>
+    <packaging>jar</packaging>
 
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
-
-    </dependencies>
 
 </project>
