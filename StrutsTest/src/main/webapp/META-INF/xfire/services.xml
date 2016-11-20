@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://xfire.codehaus.org/config/1.0">
-<service>
-	<name>HelloService</name>
-	<serviceClass>com.simon.webservice.IHelloService</serviceClass>
-	<implementationClass>com.simon.webservice.impl.HelloServiceImpl</implementationClass>
-</service>	
-</beans>
