@@ -66,9 +66,12 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.oracle</groupId>
+		<!--	<groupId>com.oracle</groupId>
 			<artifactId>ojdbc</artifactId>
-			<version>6</version>
+			<version>6</version>-->
+			<groupId>com.oracle.jdbc</groupId>
+			<artifactId>com.springsource.oracle.jdbc</artifactId>
+			<version>10.2.0.2</version>
 		</dependency>
 
 		<dependency>
