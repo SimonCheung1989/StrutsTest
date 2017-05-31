@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.simon</groupId>
+	<groupId>com.simon.soft</groupId>
 	<artifactId>StrutsTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
@@ -66,9 +66,12 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.oracle</groupId>
+		<!--	<groupId>com.oracle</groupId>
 			<artifactId>ojdbc</artifactId>
-			<version>6</version>
+			<version>6</version>-->
+			<groupId>com.oracle.jdbc</groupId>
+			<artifactId>com.springsource.oracle.jdbc</artifactId>
+			<version>10.2.0.2</version>
 		</dependency>
 
 		<dependency>
@@ -91,13 +94,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
+<!--		<dependency>
 			<groupId>weblogic</groupId>
 			<artifactId>weblogic-api</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
 			<systemPath>C:/Oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar</systemPath>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -201,7 +204,6 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<version>2.5</version>
 				</configuration>
 			</plugin>
 		</plugins>

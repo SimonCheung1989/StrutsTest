@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<project name="StrutsTest" default="A" basedir=".">
+	<property file="build.properties"></property>
+		
+	<target name="A">
+		<echo message="A" />
+	</target>
+	
+	<target name="B" depends="A">
+			<echo message="B" />
+	</target>
+	
+	<target name="C" depends="B,A">
+		<echo message="C"></echo>
+	</target>
+	
+	<target name="D" depends="C,B,A">
+		<echo message="D"></echo>
+		<echo message="basedir:${basedir}"></echo>
+		<echo message="ant.file:${ant.file}"></echo>
+		<echo message="ant.java.version:${ant.java.version}"></echo>
+		<echo message="ant.project.name:${ant.project.name}"></echo>
+	</target>
+	
+</project>
+
